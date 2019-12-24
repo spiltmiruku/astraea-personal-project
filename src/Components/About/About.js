@@ -2,8 +2,8 @@ import React from 'react';
 
 const About = () => {
     return(
-        <div>
-            <h1>ASTRAEA</h1>
+        <div class='about-page'>
+            <h1 className='title'>ASTRAEA</h1>
             <section className='about'>
                 In Greek mythology, ASTRAEA is the 'star-maiden', and the goddess of innocence. 
                 <br/>

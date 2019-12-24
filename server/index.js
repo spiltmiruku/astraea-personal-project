@@ -24,10 +24,12 @@ massive(CONNECTION_STRING).then(db => {
 
 // Authentication Endpoints
 
-app.post('api/auth/register', authCtrl.register);
-app.post('api/auth/login', authCtrl.login);
-app.post('api/logout', authCtrl.logout);
+app.post('/api/auth/register', authCtrl.register);
+app.post('/api/auth/login', authCtrl.login);
+app.post('/api/logout', authCtrl.logout);
 
+
+app.get('/api/auth/:user_id', authCtrl.getUser);
 
 // app.get('api/auth/upcomingtrips')
 
