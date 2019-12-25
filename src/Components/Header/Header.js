@@ -1,15 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+library.add(faBars);
 
-const Header = () => {
+
+class Header extends Component {
+    constructor(){
+        super();
+        this.state = {
+            toggleMenu: false
+        }
+    }
+
+    handleToggle = () => {
+        this.setState({
+            toggleMenu: !this.state.toggleMenu
+        })
+    }
+
+    render() {
+
         return (
-            <div>
-                <Link to='/'> Main </Link>
-                <Link to='/about'> About </Link>
-                <Link to='/booking'> Booking </Link>
-                <Link to='/destinations'> Destinations </Link>
+
+            <div className='App'>
+                {!this.state.toggleMenu
+                ? (<header id='header-container'>
+                    <p className='logo'> ASTRAEA </p>
+                    <nav id='nav-links'>
+                        <div>
+                            <Link className='links' to='/'> Main </Link>
+                            <Link className='links' to='/about'> About </Link>
+                            <Link className='links' to='/booking'> Booking </Link>
+                            <Link className='links' to='/destinations'> Destinations </Link>
+                        </div>
+                    </nav>
+                    <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
+                </header>)
+
+                    : (
+                        <>
+                        <header id='header-container'>
+                        <h1 className='logo'> ASTRAEA </h1>
+                    <nav id='nav-links'>
+                        <div>
+                            <Link className='links' to='/'> Main </Link>
+                            <Link className='links' to='/about'> About </Link>
+                            <Link className='links' to='/booking'> Booking </Link>
+                            <Link className='links' to='/destinations'> Destinations </Link>
+                        </div>
+                    </nav>
+                    <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
+                        </header>
+                        <nav id='nav-menu'>
+                            <Link className='links' to='/'> Main </Link>
+                            <Link className='links' to='/about'> About </Link>
+                            <Link className='links' to='/booking'> Booking </Link>
+                            <Link className='links' to='/destinations'> Destinations </Link>
+                            </nav>
+                            </>
+                             )}
+
             </div>
-        )
+           
+        );
+    }
 }
 
 export default Header;

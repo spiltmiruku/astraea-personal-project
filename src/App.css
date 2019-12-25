@@ -3,24 +3,31 @@
   color: white;
   height: 100%;
   width: 100%;
-
   text-align: center;
+}
+
+.links {
+  color: white;
+  padding: 20px;
+  text-decoration: none;
 }
 
 .about-page {
   margin-right: 300px;
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-end;
-	align-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: center;
 }
 
 .title {
   font-family: "Montserrat", sans-serif;
   color: white;
-  border: yellow solid;
+  /* border: yellow solid; */
+  font-size: 150px;
+  margin-bottom: -200px;
 }
 
 .about {
@@ -30,7 +37,6 @@
   width: 300px;
 }
 
-
 .navigation-btn {
   border: 2px solid white;
   font-size: 15px;
@@ -39,4 +45,29 @@
   width: 200px;
   background-color: rgb(15, 16, 19);
   opacity: 1;
+}
+
+#hero {
+  height: 400px;
+  width: auto;
+}
+
+.wrapall {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.desc {
+  height: 225px;
+  width: 500px;
+  border: lightgreen solid;
+  line-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
