@@ -4,19 +4,25 @@ class Booking extends Component {
     constructor(){
         super();
         this.state = {
-
+            depature: '',
+            destination: '',
+            date: '',
+            time: '',
+            passengers: 1
         }
     }
 
     render(){
         return(
             <div>
-                <input type='text'> Departure </input>
-                <input type='text'> Destination </input>
-                <input type='date'> Date </input>
-                <input type='time'> Time </input>
-                <input type='number'> Passengers </input>
-                <input className='reset-btn' type='reset'> Reset </input>
+                <section className='booking-inputs'>
+                <input type='text' name='departure' placeholder='Departure'/>
+                <input type='text' name='destination' placeholder='Destination'/>
+                <input type='date' name='date' />
+                <input type='time' name='time' />
+                <input type='number' name='passenger' placeholder='1' min='1' max='20' />
+                <input className='reset-btn' type='reset' name='reset' />
+                </section>
             </div>
         )
     }

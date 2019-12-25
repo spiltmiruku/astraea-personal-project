@@ -20,7 +20,7 @@ export function logout(){
 }
 
 export default function reducer(state = initialState, action){
-    console.log(action.payload, action.type, 'hit')
+    // console.log(action.payload, action.type, 'hit')
     const { type, payload } = action;
     switch(type){
         case GET_USER:

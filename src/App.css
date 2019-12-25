@@ -6,20 +6,27 @@
   text-align: center;
 }
 
+/* HEADING */
+
+.logo {
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
 .links {
   color: white;
   padding: 20px;
   text-decoration: none;
+  margin: 50px;
 }
 
-.about-page {
-  margin-right: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-end;
-  align-content: center;
+/* LANDING */
+
+.numbering {
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
 }
 
 .title {
@@ -29,6 +36,28 @@
   font-size: 150px;
   margin-bottom: -200px;
 }
+
+.sub-heading {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 9px;
+}
+
+.navigation-btn {
+  font-style: 16px;
+  font-family: "Open Sans Condensed", sans-serif;
+  text-transform: uppercase;
+  line-height: 48px;
+  letter-spacing: 4px;
+}
+
+.navigation-btn:hover {
+  color: rgb(15, 16, 19);
+  background-color: white;
+}
+
+/* ABOUT */
 
 .about {
   border: red solid;
@@ -52,6 +81,16 @@
   width: auto;
 }
 
+.about-page {
+  margin-right: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: center;
+}
+
 .wrapall {
   display: flex;
   flex-direction: column;
@@ -71,3 +110,23 @@
   align-items: center;
   align-content: center;
 }
+
+/* BOOKING */
+
+.booking-inputs {
+  height: 500px;
+  width: 100%;
+  padding-top: 50px;
+}
+
+input {
+  margin: 20px;
+}
+
+
+/* FONTS */
+
+/* font-family: 'Playfair Display', serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans Condensed', sans-serif; */

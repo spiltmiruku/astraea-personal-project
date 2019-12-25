@@ -28,29 +28,13 @@ class Header extends Component {
                 {!this.state.toggleMenu
                 ? (<header id='header-container'>
                     <p className='logo'> ASTRAEA </p>
-                    <nav id='nav-links'>
-                        <div>
-                            <Link className='links' to='/'> Main </Link>
-                            <Link className='links' to='/about'> About </Link>
-                            <Link className='links' to='/booking'> Booking </Link>
-                            <Link className='links' to='/destinations'> Destinations </Link>
-                        </div>
-                    </nav>
                     <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
                 </header>)
 
                     : (
                         <>
                         <header id='header-container'>
-                        <h1 className='logo'> ASTRAEA </h1>
-                    <nav id='nav-links'>
-                        <div>
-                            <Link className='links' to='/'> Main </Link>
-                            <Link className='links' to='/about'> About </Link>
-                            <Link className='links' to='/booking'> Booking </Link>
-                            <Link className='links' to='/destinations'> Destinations </Link>
-                        </div>
-                    </nav>
+                        <p className='logo'> ASTRAEA </p>
                     <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
                         </header>
                         <nav id='nav-menu'>
@@ -61,7 +45,6 @@ class Header extends Component {
                             </nav>
                             </>
                              )}
-
             </div>
            
         );
