@@ -1,6 +1,6 @@
 .App {
   background-color: #0F1013;
-  color: white;
+  color: #fff;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -40,8 +40,8 @@
 
 .account {
   margin: 35px 5px;
-font-family: 'Montserrat', sans-serif;
-  color: white;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -50,24 +50,24 @@ font-family: 'Montserrat', sans-serif;
   padding-top: 2.2%;
 }
 
+#nav-menu {
+  border: rebeccapurple solid;
+  height: 50px;
+  padding: 30px;
+}
+
 .links {
   border: violet solid;
   padding: 20px 50px;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 28px;
-  color: white;
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .links:hover {
-  border-bottom: 5px white solid;
-}
-
-#nav-menu {
-  border: rebeccapurple solid;
-  height: 50px;
-  padding: 30px;
+  border-bottom: 5px #fff solid;
 }
 
 /* ----------LANDING COMPONENT---------- */
@@ -87,7 +87,7 @@ font-family: 'Montserrat', sans-serif;
 .title {
   border: yellow solid;
   font-family: "Montserrat", sans-serif;
-  color: white;
+  color: #fff;
   font-size: 150px;
   margin-bottom: -200px;
 }
@@ -111,20 +111,41 @@ font-family: 'Montserrat', sans-serif;
   padding: 18px 60px;
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 16px;
-  color: white;
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   line-height: 48px;
   letter-spacing: 4px;
-  border: 2px solid white;
+  border: 2px solid #fff;
   background-color: #0F1013;
   opacity: 1;
 }
 
 .navigation-btn:hover {
-  color: rgb(15, 16, 19);
-  background-color: white;
+  color: #0F1013;
+  background-color: #fff;
   padding: 15px 50px; 
+}
+
+.positionBars {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+  align-content: center;
+  margin: 30px 0px;
+}
+
+.positionIndicator {
+  height: 3px;
+  width: 50px;
+  background-color: #737373;
+  margin: 50px 5px;
+}
+
+.positionIndicator:hover {
+background-color: #fff;
 }
 
 

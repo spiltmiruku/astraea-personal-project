@@ -7,12 +7,26 @@ import jupiter from "../../resources/Jupiter_spot.png";
 class Landing extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      displayMoon: true,
+      displayMars: false,
+      displayJupiter: false
+    };
   }
+
+  handleToggle = () => {
+    this.setState({
+      displayMoon: !this.state.displayMoon,
+      displayMars: !this.state.displayMars,
+      displayJupiter: !this.state.displayJupiter
+    });
+  };
+
 
   render() {
     return (
       <div>
+
         <section className="destination-box">
           <p className="numbering"> 001 </p>
           <h1 className="title"> MOON </h1>
@@ -24,6 +38,7 @@ class Landing extends Component {
              </span> 
           </Link>
         </section>
+
 
         <section className="destination-box">
           <p className="numbering"> 002 </p>
@@ -37,6 +52,7 @@ class Landing extends Component {
           </Link>
         </section>
 
+
         <section className="destination-box">
           <p className="numbering"> 003 </p>
           <h1 className="title"> JUPITER </h1>
@@ -46,6 +62,13 @@ class Landing extends Component {
             DISCOVER
           </Link>
         </section>
+
+      <section className='positionBars'>
+        <div className='positionIndicator' name='moon' />
+        <div className='positionIndicator' name='mars' />
+        <div className='positionIndicator' name='jupiter' />
+      </section>
+
       </div>
     );
   }
