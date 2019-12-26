@@ -1,18 +1,31 @@
 .App {
-  background-color: rgb(15, 16, 19);
+  background-color: #0F1013;
   color: white;
   height: 100%;
   width: 100%;
   text-align: center;
 }
 
-/* HEADING */
+/* HEADER COMPONENT */
+
+#header-container {
+  border: deepskyblue solid;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	/* align-items: flex-start; */
+}
 
 .logo {
-  font-size: 18px;
-  letter-spacing: 3px;
-  font-family: "Montserrat", sans-serif;
-  color: white;
+  height: 25px;
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+#hamburger {
+  padding-right: 2%;
+  padding-top: 2%;
 }
 
 .links {
@@ -27,6 +40,7 @@
 .numbering {
   font-family: "Roboto Slab", serif;
   font-weight: 300;
+  color: #737373;
 }
 
 .title {
@@ -72,7 +86,7 @@
   color: white;
   height: 55px;
   width: 200px;
-  background-color: rgb(15, 16, 19);
+  background-color: #0F1013;
   opacity: 1;
 }
 
@@ -122,6 +136,21 @@
 input {
   margin: 20px;
 }
+
+
+
+
+/* BACKGROUND-SELECT COLOR */
+
+::selection {
+  background: #0F1013; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #0F1013; /* Gecko Browsers */
+}
+
+
+
 
 
 /* FONTS */

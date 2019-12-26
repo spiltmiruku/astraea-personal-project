@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../../resources/astraea_logo.svg';
 import { Link } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,14 +28,14 @@ class Header extends Component {
             <div className='App'>
                 {!this.state.toggleMenu
                 ? (<header id='header-container'>
-                    <p className='logo'> ASTRAEA </p>
+                    <img src={logo} alt='logo' className='logo' />
                     <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
                 </header>)
 
                     : (
                         <>
                         <header id='header-container'>
-                        <p className='logo'> ASTRAEA </p>
+                        <img src={logo} alt='logo' className='logo' />
                     <FontAwesomeIcon icon='bars' id='hamburger' onClick={this.handleToggle} />
                         </header>
                         <nav id='nav-menu'>
