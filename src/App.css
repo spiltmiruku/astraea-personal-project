@@ -24,7 +24,6 @@
 
 .account-box {
   border: purple solid;
-
   display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -34,13 +33,16 @@
 }
 
 .icon {
-  height: 30px;
+  height: 20px;
   margin-left: 700px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .account {
   margin: 35px 5px;
+font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
 }
 
 #hamburger {
@@ -98,7 +100,7 @@
 
 .sub-heading {
   border: paleturquoise solid;
-  padding: 20px;
+  padding: 30px 0px;
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-weight: 400;
@@ -122,8 +124,9 @@
 .navigation-btn:hover {
   color: rgb(15, 16, 19);
   background-color: white;
-  /* padding: 15px 50px; */
+  padding: 15px 50px; 
 }
+
 
 /* ----------ABOUT COMPONENT---------- */
 

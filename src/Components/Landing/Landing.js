@@ -19,7 +19,9 @@ class Landing extends Component {
           <img id="hero" src={moon} alt="moon" />
           <h3 className="sub-heading"> Walk on the dark side </h3>
           <Link className="navigation-btn" to="/moon">
-            DISCOVER
+           <span>
+             DISCOVER
+             </span> 
           </Link>
         </section>
 
@@ -29,7 +31,9 @@ class Landing extends Component {
           <img id="hero" src={mars} alt="mars" />
           <h3 className="sub-heading"> The red planet </h3>
           <Link className="navigation-btn" to="/mars">
-            DISCOVER
+          <span>
+             DISCOVER
+             </span> 
           </Link>
         </section>
 
