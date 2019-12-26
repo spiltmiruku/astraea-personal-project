@@ -13,7 +13,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <section className="moon">
+        <section className="destination-box">
           <p className="numbering"> 001 </p>
           <h1 className="title"> MOON </h1>
           <img id="hero" src={moon} alt="moon" />
@@ -23,7 +23,7 @@ class Landing extends Component {
           </Link>
         </section>
 
-        <section className="mars">
+        <section className="destination-box">
           <p className="numbering"> 002 </p>
           <h1 className="title"> MARS </h1>
           <img id="hero" src={mars} alt="mars" />
@@ -33,7 +33,7 @@ class Landing extends Component {
           </Link>
         </section>
 
-        <section className="jupiter">
+        <section className="destination-box">
           <p className="numbering"> 003 </p>
           <h1 className="title"> JUPITER </h1>
           <img id="hero" src={jupiter} alt="jupiter" />
