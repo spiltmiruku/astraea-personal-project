@@ -24,14 +24,15 @@ class Header extends Component {
   render() {
     return (
       <div className="App">
-        {!this.state.toggleMenu ? (
-          <header id="header-container">
+         <header id="header-container">
             <img src={logo} alt="logo" className="logo" />
-            <Link to="/profile/authenticate" className="account-box">
-              <img src={icon} alt="profile icon" className="icon" />
 
+            <div className="account-box">
+            <Link to="/profile/authenticate">
+              <img src={icon} alt="profile icon" className="icon" />
               <p className="account">ACCOUNT</p>
             </Link>
+            </div>
 
             <FontAwesomeIcon
               icon="bars"
@@ -39,22 +40,12 @@ class Header extends Component {
               onClick={this.handleToggle}
             />
           </header>
+        {!this.state.toggleMenu ? (
+         <>
+         </>
         ) : (
           <>
-            <header id="header-container">
-              <img src={logo} alt="logo" className="logo" />
-              <Link to="/profile/authenticate" className="account-box">
-                <img src={icon} alt="profile icon" className="icon" />
-
-                <p className="account">ACCOUNT</p>
-              </Link>
-
-              <FontAwesomeIcon
-                icon="bars"
-                id="hamburger"
-                onClick={this.handleToggle}
-              />
-            </header>
+           
             <nav id="nav-menu">
               <Link className="links" to="/">
                 Main
