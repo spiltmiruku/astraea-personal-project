@@ -1,3 +1,7 @@
+html {
+  background-color: #0F1013;
+}
+
 .App {
   background-color: #0F1013;
   color: #fff;
@@ -12,10 +16,14 @@
 
 #header-container {
   border: deepskyblue solid;
+  width: 100%;
   display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: space-between;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .logo {
@@ -25,28 +33,31 @@
 }
 
 .account-box {
-  border: purple solid;
+  border: red solid;
+  height: 60px;
+  width: 300px;
+  margin-top: 20px;
+  margin-left: 1000px;
   text-decoration: none;
   display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: flex-end;
-	align-items: flex-start;
-	align-content: flex-start;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 }
 
 .icon {
   height: 20px;
-  margin-top: 30px;
 }
 
 .account {
-  margin: 35px 5px;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
 #hamburger {
+  border: springgreen solid;
   padding-right: 3%;
   padding-top: 2.2%;
 }
@@ -55,6 +66,7 @@
   border: rebeccapurple solid;
   height: 50px;
   padding: 30px;
+  margin-top: 100px;
 }
 
 .links {
@@ -92,7 +104,8 @@
   font-family: "Montserrat", sans-serif;
   color: #fff;
   font-size: 150px;
-  margin-bottom: -200px;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 #hero {
@@ -142,7 +155,7 @@
   width: 240px;
 }
 
-.navigation-btn {
+.discover-btn {
   letter-spacing: 0.1em;
   cursor: pointer;
   font-size: 14px;
@@ -154,7 +167,7 @@
   text-transform: uppercase;
   width: 100%;
 }
-.navigation-btn:hover {
+.discover-btn:hover {
   text-decoration: none;
 }
 
@@ -208,8 +221,6 @@
     -webkit-transform: rotate(40deg);
             transform: rotate(40deg);
   }
-
-
 
 .positionBars {
   display: flex;
@@ -305,7 +316,6 @@ input {
 
 
 
-
 /* ----------BACKGROUND-SELECT COLOR---------- */
 
 ::selection {
@@ -314,8 +324,6 @@ input {
 ::-moz-selection {
   background: #0F1013; /* Gecko Browsers */
 }
-
-
 
 
 

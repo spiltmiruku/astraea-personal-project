@@ -8,8 +8,14 @@ INSERT INTO astraea_users (
     ${email},
     ${passenger_firstname},
     ${passenger_lastname}
-)
+);
+
+INSERT INTO astraea_user_passwords (
+    user_id,
+    password
+) VALUES (
+    lastval(),
+    ${password}
+);
 
 RETURNING *;
-
--- HOW WOULD THE NEW USER CREATE A PASSWORD IF IT'S A DIFFERENT TABLE?!?!?!
