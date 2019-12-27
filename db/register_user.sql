@@ -12,10 +12,10 @@ INSERT INTO astraea_users (
 
 INSERT INTO astraea_user_passwords (
     user_id,
-    password
+    hash
 ) VALUES (
     lastval(),
-    ${password}
+    ${hash}
 );
 
 RETURNING *;

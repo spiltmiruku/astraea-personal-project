@@ -245,6 +245,29 @@ background-color: #fff;
 }
 
 
+/* ----------AUTHMODAL COMPONENT---------- */
+
+.auth-title {
+  font-size: 70px;
+}
+
+.login {
+  border: salmon solid;
+  margin-top: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.register {
+  border: yellow solid;
+  margin-top: 200px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+
 /* ----------ABOUT COMPONENT---------- */
 
 .venus{
