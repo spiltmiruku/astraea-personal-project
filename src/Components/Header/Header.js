@@ -26,7 +26,10 @@ class Header extends Component {
     return (
       <div className="App">
          <header id="header-container">
-            <img src={logo} alt="logo" className="logo" />
+           <Link className="links" to="/">
+           <img src={logo} alt="logo" className="logo" />
+           </Link>
+           
 
             <div className="account-box">
             <Link to="/profile/authenticate">
