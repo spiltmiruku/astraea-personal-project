@@ -31,6 +31,9 @@ app.post('/api/logout', authCtrl.logout);
 
 app.get('/api/auth/:user_id', authCtrl.getUser);
 
+app.get('/api/airports', ctrl.getAirports);
+
+
 // app.get('api/auth/upcomingtrips')
 
 

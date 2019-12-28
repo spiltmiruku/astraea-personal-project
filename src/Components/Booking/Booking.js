@@ -1,25 +1,125 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Booking extends Component {
   constructor() {
     super();
     this.state = {
-      depature: "",
+      departure: "",
+      departureLocationAirports: [],
       destination: "",
+      destinationLocations: [],
       date: "",
       time: "",
       passengers: 1
     };
+    this.add = this.add.bind(this);
+    this.handleAirportSearch = this.handleAirportSearch.bind(this);
+  }
+
+  handleAdd(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleAirportSearch(location) {
+    axios.get("/api/airports?name=" + this.state[location]).then(res => {
+      console.log(res);
+      this.setState({
+        [`${location}Airports`]: res.data
+      });
+    });
+  }
+
+  add() {
+    let flight = { ...this.state };
+    console.log(flight);
+    this.props.addFlight(flight);
+
+    this.setState({
+      departure: "",
+      departureLocationAirports: [],
+      destination: "",
+      destinationLocations: [],
+      date: "",
+      time: "",
+      passengers: this.state.passengers
+    });
   }
 
   render() {
+    let departureLocationSelect = "";
+    if (this.state.departureLocationAirports.length) {
+      departureLocationSelect = (
+        <select
+          onChange={e => this.handleAdd(e)} 
+          name="departure" 
+          id="departure" 
+        >
+          {this.state.departureLocationAirports.map(airport => (
+            <option key={airport.code} value={airport.code}>
+              {airport.code} - {airport.name}
+            </option>
+          ))}
+        </select>
+      );
+      
+    }
+
+    // let destinationLocationSelect = '';
+    // if (this.state.destinationLocations.length) {
+    //     destinationLocationSelect = (
+    //         <select
+    //         onChange={e => this.handleAdd(e)}
+    //         name='destinationLocation'
+    //         id='destinationLocation'
+    //         >
+    //         {this.state.destinationLocations.map(planet => (
+    //             <option key={planet.name} value={planet.name}>
+    //                 {planet.name}
+    //             </option>
+    //         ))}
+    //         </select>
+    //     )
+    // }
+
+
     return (
       <div>
         <section className="booking-inputs">
+
+            <div className='departureSearch'>
+
           <label>Departure</label>
-          <input type="text" name="departure" placeholder="Departure" />
-          <label>Destination</label>
-          <input type="text" name="destination" placeholder="Destination" />
+          <input
+            onChange={e => this.handleAdd(e)}
+            value={this.state.departure}
+            type="text"
+            name="departure"
+            placeholder="Departure"
+            />
+          <button
+            className="searchAirports" 
+            onClick={() => this.handleAirportSearch("departure")} 
+            name='departureSearch'
+            >
+            Search Airports
+          </button>
+            </div>
+          {departureLocationSelect}
+        
+
+          {/* <label>Destination</label>
+          <input onChange={e => this.handleAdd(e)} value={this.state.destination} type="text" name="destination" placeholder="Destination" />
+          <button className='searchDestinations'
+            onClick={() => this.handleDestinationSearch('destination')}>
+              Search Destinations
+          </button>
+
+            {destinationLocationSelect} */}
+
+
           <label>Dates</label>
           <input type="date" name="date" />
           <label>Time</label>
