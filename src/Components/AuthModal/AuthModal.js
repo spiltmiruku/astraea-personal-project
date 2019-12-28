@@ -1,23 +1,22 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import { connect } from 'react-redux';
-import { getUser } from '../../redux/reducer';
+import axios from "axios";
+import { connect } from "react-redux";
+import { updateUser } from "../../redux/reducer";
 
 class AuthModal extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      display: "log in",
-
+      display: "login",
       username: "",
       email: "",
       passenger_firstname: "",
       passenger_lastname: "",
       password: ""
     };
-    // this.register = this.register.bind(this);
-    // this.login = this.login.bind(this);
-    // this.logout = this.logout.bind(this);
+    this.register = this.register.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   handleToggle = nextDisplay => {
@@ -27,7 +26,7 @@ class AuthModal extends Component {
   };
 
   handleInput = e => {
-    // console.log(e.target.name)
+    // console.log(e);
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -35,69 +34,95 @@ class AuthModal extends Component {
 
   login() {
     const { username, password } = this.state;
-    axios.post('/api/auth/login', { username, password })
-    .then(user => {
-      this.props.updateUser(user.data);
-      this.setState({ username: '', password: ''});
-    })
-    .catch(err => alert(err.response.request.response));
-  };
+    axios
+      .post("/api/auth/login", { username, password })
+      .then(user => {
+        console.log('success')
+        this.props.updateUser(user.data);
+        this.setState({ username: "", password: "" });
+      })
+      .catch(err => console.log(err));
+  }
 
   register() {
-    const {username, password, email, passenger_firstname, passenger_lastname } = this.state;
-    axios.post('/api/auth/register', { username, password, email, passenger_firstname, passenger_lastname })
-    .then(user => {
-      this.setState({
-        username: '', 
-        password: '',
-        email: '',
-        passenger_firstname: '',
-        passenger_lastname: ''
+    const {
+      username,
+      password,
+      email,
+      passenger_firstname,
+      passenger_lastname
+    } = this.state;
+    axios
+      .post("/api/auth/register", {
+        username,
+        password,
+        email,
+        passenger_firstname,
+        passenger_lastname
+      })
+      .then(user => {
+        console.log('register successful', user)
+        this.setState({
+          username: "",
+          password: "",
+          email: "",
+          passenger_firstname: "",
+          passenger_lastname: ""
+        });
+        this.props.updateUser(user.data);
+      })
+      .catch(err => {
+        console.log('register failed', err)
+        this.setState({
+          username: "",
+          password: "",
+          email: "",
+          passenger_firstname: "",
+          passenger_lastname: ""
+        });
       });
-      this.props.updateUser(user.data)
-    })
-    .catch(err => {
-      this.setState({ 
-        username: '', 
-        password: '',
-        email: '',
-        passenger_firstname: '',
-        passenger_lastname: ''
-      });
-      alert(err.response.request.response)
-    });
-  };
-    
-  logout() {
-    axios.get('/api/logout')
-    .then( () => {
-      this.props.updateUser({});
-    })
-    .catch(error => console.log(error));
-  };
+  }
 
+  logout() {
+    axios
+      .get("/api/logout")
+      .then(() => {
+        this.props.updateUser({});
+      })
+      .catch(error => console.log(error));
+  }
 
   render() {
-    const { username, password, email, passenger_firstname, passenger_lastname } = this.state;
-    const { user } = this.props;
+    const {
+      username,
+      password,
+      email,
+      passenger_firstname,
+      passenger_lastname
+    } = this.state;
+    // const { user } = this.props;
     return (
       <div>
-        {this.state.display === "log in" ? (
+        {this.state.display === "login" ? (
           <section className="login">
-            <h1 className='auth-title'>LOG IN</h1>
-            <input 
-              type="text" 
-              name="username" 
-              placeholder="Username" 
-              value={username} 
-              onChange={e => this.handleInput(e.target.value)}/>
-            <input 
-              type="password" 
-              name="password" 
-              placeholder="Password" 
-              value={password} 
-              onChange={e => this.handleInput(e.target.value)}/>
-            <button type='submit' onClick={this.login}>Log in</button>
+            <h1 className="auth-title">LOG IN</h1>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={username}
+              onChange={e => this.handleInput(e)}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => this.handleInput(e)}
+            />
+            <button type="submit" onClick={this.login}>
+              Log in
+            </button>
 
             <div className="btn-container">
               <div
@@ -116,44 +141,49 @@ class AuthModal extends Component {
 
         {this.state.display === "register" ? (
           <section className="register">
-          <h1 className='auth-title'>REGISTER</h1>
-            <input 
-              type="text" 
-              name="username" 
-              placeholder="Username" 
+            <h1 className="auth-title">REGISTER</h1>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
               value={username}
-              onChange={e => this.handleInput(e.target.value)}/>
-            <input 
-              type="password" 
-              name="password" 
-              placeholder="Password" 
+              onChange={e => this.handleInput(e)}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
               value={password}
-              onChange={e => this.handleInput(e.target.value)}/>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Email" 
+              onChange={e => this.handleInput(e)}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
               value={email}
-              onChange={e => this.handleInput(e.target.value)}/>
-            <input 
-              type="text" 
-              name="passenger_firstname" 
-              placeholder="First Name" 
+              onChange={e => this.handleInput(e)}
+            />
+            <input
+              type="text"
+              name="passenger_firstname"
+              placeholder="First Name"
               value={passenger_firstname}
-              onChange={e => this.handleInput(e.target.value)}/>
-            <input 
-              type="text" 
-              name="passenger_lastname" 
-              placeholder="Last Name" 
+              onChange={e => this.handleInput(e)}
+            />
+            <input
+              type="text"
+              name="passenger_lastname"
+              placeholder="Last Name"
               value={passenger_lastname}
-              onChange={e => this.handleInput(e.target.value)}/>
-            <button>Register</button>
+              onChange={e => this.handleInput(e)}
+            />
+            <button type="submit" onClick={this.register}>Register</button>
 
             <div className="btn-container">
               <div
-                onClick={e => this.handleToggle("log in")}
+                onClick={e => this.handleToggle("login")}
                 className={`discover-btn effect01 ${
-                  this.state.display === "log in" ? "active" : ""
+                  this.state.display === "login" ? "active" : ""
                 }`}
               >
                 SIGN IN
@@ -168,4 +198,4 @@ class AuthModal extends Component {
   }
 }
 
-export default connect(null, {getUser}) (AuthModal);
+export default connect(null, { updateUser })(AuthModal);

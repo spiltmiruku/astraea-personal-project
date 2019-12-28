@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import logo from "../../resources/astraea_logo.svg";
 import icon from "../../resources/profile_icon.png";
 import { Link } from "react-router-dom";
@@ -30,7 +31,7 @@ class Header extends Component {
             <div className="account-box">
             <Link to="/profile/authenticate">
               <img src={icon} alt="profile icon" className="icon" />
-              <p className="account">ACCOUNT</p>
+    <p className="account"> {this.props.user && this.props.user.passenger_firstname ? this.props.user.passenger_firstname : 'ACCOUNT'}</p>
             </Link>
             </div>
 
@@ -67,4 +68,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default connect((state => ({user: state.user})) ) (Header);

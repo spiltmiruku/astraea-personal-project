@@ -1,2 +1,2 @@
 SELECT * FROM astraea_users
-WHERE username = ${username};
+WHERE username = $1;
