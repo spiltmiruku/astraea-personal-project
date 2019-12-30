@@ -363,6 +363,29 @@ background-color: #fff;
   margin-top: 20px;
 }
 
+.trip-dates-wrapper {
+  border: lightskyblue solid;
+  height: 50px;
+  width: 250px;
+}
+
+.trip-dates {
+  border: purple solid;
+  height: 20px;
+  width: 100px;
+}
+
+.flight-times {
+  border: yellow solid;
+  height: 50px;
+}
+
+.passenger-number {
+  border: tomato solid;
+  height: 50px;
+  width: 150px;
+}
+
 .book-trip {
   border: palegreen solid;
   color: #FFF;
@@ -371,11 +394,9 @@ background-color: #fff;
   width: 120px;
 }
 
-
 input {
   margin: 20px;
 }
-
 
 
 /* ----------BACKGROUND-SELECT COLOR---------- */

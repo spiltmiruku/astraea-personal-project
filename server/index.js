@@ -2,11 +2,14 @@ require('dotenv').config();
 const express = require('express'),
       massive = require('massive'),
       session = require('express-session'),
-      authCtrl = require('./authController'),
       ctrl = require('./controller'),
+      authCtrl = require('./authController'),
+      tripCtrl = require('./tripController'),
       gradient = require('gradient-string'),
       { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
       app = express();
+    //   stripe = require('stripe')('sk_test_40DTj8R96Ni1aW6z7qJlJWLs00OPzKKChU');
+
 
 app.use(express.json());
 
@@ -22,6 +25,14 @@ massive(CONNECTION_STRING).then(db => {
     console.log(gradient.atlas('Searching for DB Cooper'))
 })
 
+
+// (async () => {
+//     const paymentIntent = await stripe.paymentIntents.create({
+//         amount: 99999,
+//         currency: 'usd'
+//     });
+// })();
+
 // Authentication Endpoints
 
 app.post('/api/auth/register', authCtrl.register);
@@ -32,6 +43,8 @@ app.post('/api/logout', authCtrl.logout);
 app.get('/api/auth/:user_id', authCtrl.getUser);
 
 app.get('/api/airports', ctrl.getAirports);
+
+app.post('/api/booktrip', tripCtrl.bookTrip);
 
 
 // app.get('api/auth/upcomingtrips')
