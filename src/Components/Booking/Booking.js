@@ -24,10 +24,12 @@ class Booking extends Component {
   }
 
   handleAirportSearch(location) {
+      console.log('searching', location)
     axios.get("/api/airports?name=" + this.state[location]).then(res => {
-      console.log(res);
+      console.log(res.data);
       this.setState({
-        [`${location}Airports`]: res.data
+        [`${location}LocationAirports`]: res.data,
+        [`${location}Airport`]: res.data[0].code 
       });
     });
   }
@@ -50,6 +52,7 @@ class Booking extends Component {
 
   render() {
     let departureLocationSelect = "";
+    console.log(this.state.departureLocationAirports)
     if (this.state.departureLocationAirports.length) {
       departureLocationSelect = (
         <select
