@@ -272,6 +272,7 @@ background-color: #fff;
 
 /* ----------ABOUT COMPONENT---------- */
 
+
 .venus{
   height: 400px;
   opacity: 0.9;
@@ -327,17 +328,54 @@ background-color: #fff;
   align-content: center;
 }
 
+
 /* ----------BOOKING---------- */
 
+
 .booking-inputs {
-  height: 500px;
+  border: slateblue solid ;
+  height: 300px;
   width: 100%;
   padding-top: 200px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
+
+.departureSearchBox {
+  border: aquamarine solid;
+  margin-right: 10px;
+}
+
+.searchAirports {
+  border: palevioletred solid;
+  color: #FFF;
+  background-color: #0F1013;
+  height: 50px;
+  width: 120px;
+}
+
+.departureAirportSelect {
+  margin-top: 20px;
+}
+
+.book-trip {
+  border: palegreen solid;
+  color: #FFF;
+  background-color: #0F1013;
+  height: 50px;
+  width: 120px;
+}
+
 
 input {
   margin: 20px;
 }
+
 
 
 /* ----------BACKGROUND-SELECT COLOR---------- */

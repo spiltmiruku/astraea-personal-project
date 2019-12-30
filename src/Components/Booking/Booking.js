@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { DateRange } from 'react-date-range';
 
 class Booking extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class Booking extends Component {
       departureLocationAirports: [],
       destination: "",
       destinationLocations: [],
-      date: "",
+      dates: "",
       time: "",
       passengers: 1
     };
@@ -24,12 +25,12 @@ class Booking extends Component {
   }
 
   handleAirportSearch(location) {
-      console.log('searching', location)
+    console.log("searching", location);
     axios.get("/api/airports?name=" + this.state[location]).then(res => {
       console.log(res.data);
       this.setState({
         [`${location}LocationAirports`]: res.data,
-        [`${location}Airport`]: res.data[0].code 
+        [`${location}Airport`]: res.data[0].code
       });
     });
   }
@@ -44,21 +45,26 @@ class Booking extends Component {
       departureLocationAirports: [],
       destination: "",
       destinationLocations: [],
-      date: "",
+      dates: "",
       time: "",
       passengers: this.state.passengers
     });
   }
 
+  handleSelect(range){
+      console.log(range);
+  }
+
+
   render() {
     let departureLocationSelect = "";
-    console.log(this.state.departureLocationAirports)
+    console.log(this.state.departureLocationAirports);
     if (this.state.departureLocationAirports.length) {
       departureLocationSelect = (
         <select
-          onChange={e => this.handleAdd(e)} 
-          name="departure" 
-          id="departure" 
+          onChange={e => this.handleAdd(e)}
+          name="departure"
+          id="departure"
         >
           {this.state.departureLocationAirports.map(airport => (
             <option key={airport.code} value={airport.code}>
@@ -67,7 +73,6 @@ class Booking extends Component {
           ))}
         </select>
       );
-      
     }
 
     // let destinationLocationSelect = '';
@@ -87,33 +92,32 @@ class Booking extends Component {
     //     )
     // }
 
-
     return (
-      <div>
-        <section className="booking-inputs">
-
-            <div className='departureSearch'>
-
-          <label>Departure</label>
-          <input
-            onChange={e => this.handleAdd(e)}
-            value={this.state.departure}
-            type="text"
-            name="departure"
-            placeholder="Departure"
-            />
-          <button
-            className="searchAirports" 
-            onClick={() => this.handleAirportSearch("departure")} 
-            name='departureSearch'
-            >
-            Search Airports
-          </button>
+        <div>
+          <section className="booking-inputs">
+            <div className="departureSearchBox">
+              <label>Departure</label>
+              <input
+                onChange={e => this.handleAdd(e)}
+                value={this.state.departure}
+                type="text"
+                name="departure"
+                placeholder="Departure"
+              />
+              <button
+                className="searchAirports"
+                onClick={() => this.handleAirportSearch("departure")}
+                name="departureSearch"
+              >
+                Search Airports
+              </button>
+              <div className='departureAirportSelect'>
+            {departureLocationSelect}
             </div>
-          {departureLocationSelect}
-        
+            </div>
+           
 
-          {/* <label>Destination</label>
+            {/* <label>Destination</label>
           <input onChange={e => this.handleAdd(e)} value={this.state.destination} type="text" name="destination" placeholder="Destination" />
           <button className='searchDestinations'
             onClick={() => this.handleDestinationSearch('destination')}>
@@ -122,25 +126,31 @@ class Booking extends Component {
 
             {destinationLocationSelect} */}
 
+            <label>Dates</label>
 
-          <label>Dates</label>
-          <input type="date" name="date" />
-          <label>Time</label>
-          <input type="time" name="time" />
-          <label>Passengers</label>
-          <input
-            type="number"
-            name="passenger"
-            placeholder="1"
-            min="1"
-            max="20"
-          />
-          <input className="reset-btn" type="reset" name="reset" />
-          <button className="book-now" type="submit" name="book-now">
-            BOOK TRIP
-          </button>
-        </section>
-      </div>
+            <div className='trip-dates'>
+
+            <DateRange
+                onInit={this.handleSelect} 
+                onChange={this.handleSelect}
+                />
+            </div>
+
+            <label>Time</label>
+            <input type="time" name="time" />
+            <label>Passengers</label>
+            <input
+              type="number"
+              name="passenger"
+              placeholder="1"
+              min="1"
+              max="20"
+            />
+            <button className="book-trip" type="submit" name="book-trip">
+              BOOK TRIP
+            </button>
+          </section>
+        </div>
     );
   }
 }
