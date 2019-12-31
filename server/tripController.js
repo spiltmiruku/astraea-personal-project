@@ -1,11 +1,12 @@
 module.exports = {
     bookTrip: (req, res) => {
+        console.log(req.body)
         const { departure_airport,
-                destination_planet,
                 flight_time,
                 flight_date,
                 passenger_qty,
                 user_id } = req.body;
+                const destination_planet = 'Earth';
                 const db = req.app.get('db');
                 db.book_trip({ 
                     departure_airport,

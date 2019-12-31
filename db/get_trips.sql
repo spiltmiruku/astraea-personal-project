@@ -1,2 +1,2 @@
 SELECT * FROM astraea_bookings
-WHERE 
+WHERE user_id = $1;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-// import Moment from 'moment';
 import axios from "axios";
+import { connect } from 'react-redux';
+import earth from '../../resources/Earth.png';
+// import Moment from 'moment';
 // import {
 //   Calendar,
 //   DateRange,
@@ -13,6 +15,7 @@ class Booking extends Component {
     super(props);
     this.state = {
       departure: "",
+      departureAirport: '',
       departureLocationAirports: [],
       destinationPlanet: "",
       destinationLocations: [],
@@ -22,7 +25,7 @@ class Booking extends Component {
       displayCalendar: "hide",
       departureDate: ''
     };
-    this.add = this.add.bind(this);
+    this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -44,22 +47,40 @@ class Booking extends Component {
     });
   }
 
-  add() {
-    let flight = { ...this.state };
-    console.log(flight);
-    this.props.addFlight(flight);
+  // bookTrip() {
+  //   let flight = { ...this.state };
+  //   console.log(flight);
+  //   this.props.addFlight(flight);
 
-    this.setState({
-      departure: "",
-      departureLocationAirports: [],
-      destinationPlanet: "",
-      destinationLocations: [],
-      dates: "",
-      time: "",
-      passengers: this.state.passengers,
-      displayCalendar: "hide"
-    });
+  //   this.setState({
+  //     departure: "",
+  //     departureLocationAirports: [],
+  //     destinationPlanet: "",
+  //     destinationLocations: [],
+  //     dates: "",
+  //     time: "",
+  //     passengers: this.state.passengers,,
+  //     displayCalendar: "hide",
+  //     departureDate: ''
+  //   });
+  // }
+
+
+bookTrip = () => {
+  if(this.props.user.user_id){
+      axios.post('/api/booktrip', {
+        user_id: this.props.user.user_id,
+        departure_airport: this.state.departureAirport,
+        destination_planet: this.state.destinationPlanet,
+        flight_time: this.state.time,
+        passenger_qty: this.state.passengers,
+        flight_date: this.state.departureDate
+      }).then( res => {
+        alert('Trip booked')
+      }).catch(err => console.log(err))
   }
+}
+ 
 
   handleSelect(range) {
     console.log(range);
@@ -76,6 +97,7 @@ class Booking extends Component {
   };
 
   render() {
+
     let departureLocationSelect = "";
     console.log(this.state.displayCalendar);
     console.log(this.state.departureLocationAirports);
@@ -83,7 +105,7 @@ class Booking extends Component {
       departureLocationSelect = (
         <select
           onChange={e => this.handleAdd(e)}
-          name="departure"
+          name="departureAirport"
           id="departure"
         >
           {this.state.departureLocationAirports.map(airport => (
@@ -111,9 +133,14 @@ class Booking extends Component {
     //         </select>
     //     )
     // }
-
+    console.log(this.state)
     return (
+
+
       <div>
+      <img id="hero" src={earth} alt="earth" />
+
+
         <section className="booking-inputs">
           <div className="departureSearchBox">
             <label>Departure</label>
@@ -183,6 +210,7 @@ class Booking extends Component {
             <label for='departureDate'>Departure Date</label>
             <input
               onChange={e => this.handleAdd(e)}
+              name='departureDate'
               placeholder='Departure Date'
               value={this.state.departureDate}
               type='date'
@@ -192,12 +220,17 @@ class Booking extends Component {
 
           <div className="flight-times">
             <label>Time</label>
-            <input type="time" name="time" />
+            <input 
+              onChange={e => this.handleAdd(e)}
+              name="time" 
+              type="time" 
+              />
           </div>
 
           <div className="passenger-number">
             <label>Passengers</label>
             <input
+              onChange={e => this.handleAdd(e)}
               type="number"
               name="passenger"
               placeholder="1"
@@ -206,7 +239,7 @@ class Booking extends Component {
             />
           </div>
 
-          <button className="book-trip" type="submit" name="book-trip">
+          <button className="book-trip" onClick={() => this.bookTrip()}>
             BOOK TRIP
           </button>
         </section>
@@ -215,4 +248,8 @@ class Booking extends Component {
   }
 }
 
-export default Booking;
+const mapStateToProps = reduxState => {
+  return reduxState
+}
+
+export default connect(mapStateToProps)(Booking);
