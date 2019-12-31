@@ -1,5 +1,6 @@
 const axios = require("axios");
-import AIRPORT_API from '../src/'
+const { AIRPORT_API } = process.env
+
 
 const apiurl =
   "https://cometari-airportsfinder-v1.p.rapidapi.com/api/airports/by-text?text=";
@@ -9,8 +10,9 @@ module.exports = {
     axios
       .get(apiurl + req.query.name, {
         headers: {
-          AIRPORT_API
-        }
+          "x-rapidapi-host": "cometari-airportsfinder-v1.p.rapidapi.com",
+          "x-rapidapi-key": AIRPORT_API
+                  }
       })
       .then(res2 => {
           // console.log(res2.data)
