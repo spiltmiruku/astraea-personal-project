@@ -21,7 +21,7 @@ class Booking extends Component {
       destinationLocations: [],
       dates: "",
       time: "",
-      passengers: 1,
+      passenger_qty: 1,
       displayCalendar: "hide",
       departureDate: ''
     };
@@ -73,7 +73,7 @@ bookTrip = () => {
         departure_airport: this.state.departureAirport,
         destination_planet: this.state.destinationPlanet,
         flight_time: this.state.time,
-        passenger_qty: this.state.passengers,
+        passenger_qty: this.state.passenger_qty,
         flight_date: this.state.departureDate
       }).then( res => {
         alert('Trip booked')
@@ -207,7 +207,7 @@ bookTrip = () => {
 
 
           <div className='departureDate'>
-            <label for='departureDate'>Departure Date</label>
+            <label className='departureDate'>Departure Date</label>
             <input
               onChange={e => this.handleAdd(e)}
               name='departureDate'
@@ -232,7 +232,7 @@ bookTrip = () => {
             <input
               onChange={e => this.handleAdd(e)}
               type="number"
-              name="passenger"
+              name="passenger_qty"
               placeholder="1"
               min="1"
               max="20"
