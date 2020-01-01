@@ -34,10 +34,12 @@ html {
 
 .account-box {
   border: red solid;
-  height: 60px;
-  width: 300px;
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  margin-top: 50px;
   margin-left: 1000px;
+  margin-right: 5px;
   text-decoration: none;
 }
 
@@ -60,8 +62,9 @@ html {
 
 #hamburger {
   border: springgreen solid;
-  padding-right: 3%;
-  padding-top: 2.2%;
+  padding: 20px;
+  margin-right: 5%;
+  margin-top: 2.2%;
 }
 
 #nav-menu {
@@ -90,12 +93,14 @@ html {
 
 
 .destination-box {
-  border: lightcoral solid;
-  margin-top: 20px;
+  border: blue solid;
+  margin-top: 100px;
+  height: fit-content
 }
 
 .numbering {
-  border: springgreen solid;
+  border: hotpink solid;
+  height: 30px;
   font-family: "Roboto Slab", serif;
   font-weight: 300;
   color: #737373;
@@ -107,13 +112,20 @@ html {
   color: #fff;
   font-size: 150px;
   font-weight: bold;
+  height: fit-content;
+  margin-top: 10px;
   margin-bottom: 0;
+
 }
 
 #hero {
   border: pink solid;
   height: 400px;
   width: auto;
+}
+
+#hero:hover {
+  opacity: 0.3;
 }
 
 .sub-heading {
@@ -147,14 +159,14 @@ html {
 
 
 .btn-container {
-  align-items: center;
+  border: sandybrown solid;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
   background-color: #0F1013;
   padding:  40px 0px;
-  width: 240px;
 }
 
 .discover-btn {
@@ -187,7 +199,6 @@ html {
   background-color: #FFF;
   box-shadow:0px 0px 0px 4px #EEE inset;
 }
-
 
   /*btn_text*/
   .effect01 span {
@@ -225,6 +236,7 @@ html {
   }
 
 .positionBars {
+  border: cyan solid;
   display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -233,6 +245,7 @@ html {
   align-content: center;
   margin: 30px 0px;
 }
+
 
 .positionIndicator {
   height: 3px;
@@ -244,10 +257,12 @@ html {
 .positionIndicator.active,
 .positionIndicator:hover {
 background-color: #fff;
+cursor: pointer;
 }
 
 
 /* ----------AUTHMODAL COMPONENT---------- */
+
 
 .auth-title {
   font-size: 70px;
@@ -273,13 +288,30 @@ background-color: #fff;
 /* ----------ABOUT COMPONENT---------- */
 
 
+.about-box {
+  border: mediumslateblue solid;
+  display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  align-content: center;
+  margin-top: 100px;
+}
+
 .venus{
+  border: lavenderblush solid;
   height: 400px;
   opacity: 0.9;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-right: 500px;
 }
+
+.title-content-wrapper {
+  border: khaki solid;
+}
+
 .page-title {
+  border: lightskyblue solid;
   font-size: 100px;
   letter-spacing: 4px;
 }
@@ -294,46 +326,71 @@ background-color: #fff;
   padding: 30px;
 }
 
-#hero:hover {
-  opacity: 0.3;
-}
+/* ----------DESTINATIONS COMPONENTS---------- */
 
-.about-page {
-  margin-right: 300px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: flex-end;
-  align-content: center;
-}
 
-.wrapall {
+.wrap-all-planets {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
   align-items: center;
-  align-content: center;
+  margin-top: 150px;
+}
+
+.planet-name {
+  border: plum solid;
+  font-size: 60px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 8px;
+  line-height: 62px;
+  margin: 20px;
+}
+
+.planet-subtitle {
+  border: lemonchiffon solid;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin: 20px;
 }
 
 .desc {
-  height: 225px;
-  width: 500px;
-  border: lightgreen solid;
+  border: springgreen solid;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  color: #737373;
+  letter-spacing: 1px;
+  line-height: 30px;
+  padding: 20px;
+  height: 255px;
+  width: 600px;
   line-height: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.trivia {
+  border: tomato solid;
+  margin: 20px;
 }
 
 
 /* ----------BOOKING---------- */
 
 
+.booking-title {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+}
+
 .booking-inputs {
-  border: slateblue solid ;
+  border: slateblue solid;
   height: 300px;
   width: 100%;
 
@@ -348,6 +405,10 @@ background-color: #fff;
 .departureSearchBox {
   border: aquamarine solid;
   margin-right: 10px;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .searchAirports {
@@ -362,7 +423,7 @@ background-color: #fff;
   margin-top: 20px;
 }
 
-.trip-dates-wrapper {
+/* .trip-dates-wrapper {
   border: lightskyblue solid;
   height: 50px;
   width: 250px;
@@ -372,17 +433,51 @@ background-color: #fff;
   border: purple solid;
   height: 20px;
   width: 100px;
+} */
+
+.destination-dropdown {
+  border: orange solid;
+  height: 50px;
+  width: 180px;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
+
+.departureDate {
+  border: mediumslateblue solid;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 
 .flight-times {
   border: yellow solid;
-  height: 50px;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .passenger-number {
   border: tomato solid;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.nextbtn {
+  border: lawngreen solid;
   height: 50px;
-  width: 150px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .book-trip {
@@ -400,11 +495,12 @@ input {
 
 /* ----------BACKGROUND-SELECT COLOR---------- */
 
+
 ::selection {
-  background: #0F1013; /* WebKit/Blink Browsers */
+  background: rgb(255, 255, 255); /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: #0F1013; /* Gecko Browsers */
+  background: rgb(255, 255, 255); /* Gecko Browsers */
 }
 
 

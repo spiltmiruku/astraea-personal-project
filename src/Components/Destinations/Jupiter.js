@@ -7,8 +7,7 @@ class Jupiter extends Component {
   }
   render() {
     return (
-      <div className='wrapall'>
-      <div>
+      <div className='wrap-all-planets'>
 
         <section className="planet">
           <h1 className="planet-name"> JUPITER </h1>
@@ -22,7 +21,7 @@ class Jupiter extends Component {
             storm bigger than Earth that has raged for hundreds of years.
           </p>
 
-          <h3>Trivia:</h3>
+          <h3 className='trivia'>Trivia:</h3>
           <p className='desc'>
             Jupiter's moons are named after his lovers and affairs.
             <br />
@@ -35,7 +34,6 @@ class Jupiter extends Component {
           </p>
         </section>
 
-      </div>
       </div>
     );
   }

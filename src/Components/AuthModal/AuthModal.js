@@ -40,6 +40,7 @@ class AuthModal extends Component {
         console.log('success')
         this.props.updateUser(user.data);
         this.setState({ username: "", password: "" });
+        alert('Login successful')
       })
       .catch(err => console.log(err));
   }

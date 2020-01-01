@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { connect } from 'react-redux';
-import earth from '../../resources/Earth.png';
-// import Moment from 'moment';
-// import {
-//   Calendar,
-//   DateRange,
-//   DateRangePicker,
-//   DefinedRange
-// } from "react-date-range";
+import { connect } from "react-redux";
+import earth from "../../resources/Earth.png";
+import {
+  DateRange,
+} from "react-date-range";
+import Moment from "moment";
 
 class Booking extends Component {
   constructor(props) {
     super(props);
     this.state = {
       departure: "",
-      departureAirport: '',
+      departureAirport: "",
       departureLocationAirports: [],
       destinationPlanet: "",
       destinationLocations: [],
@@ -23,7 +20,7 @@ class Booking extends Component {
       time: "",
       passenger_qty: 1,
       displayCalendar: "hide",
-      departureDate: ''
+      display: "bookTrip"
     };
     this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
@@ -47,46 +44,32 @@ class Booking extends Component {
     });
   }
 
-  // bookTrip() {
-  //   let flight = { ...this.state };
-  //   console.log(flight);
-  //   this.props.addFlight(flight);
-
-  //   this.setState({
-  //     departure: "",
-  //     departureLocationAirports: [],
-  //     destinationPlanet: "",
-  //     destinationLocations: [],
-  //     dates: "",
-  //     time: "",
-  //     passengers: this.state.passengers,,
-  //     displayCalendar: "hide",
-  //     departureDate: ''
-  //   });
-  // }
-
-
-bookTrip = () => {
-  if(this.props.user.user_id){
-      axios.post('/api/booktrip', {
-        user_id: this.props.user.user_id,
-        departure_airport: this.state.departureAirport,
-        destination_planet: this.state.destinationPlanet,
-        flight_time: this.state.time,
-        passenger_qty: this.state.passenger_qty,
-        flight_date: this.state.departureDate
-      }).then( res => {
-        alert('Trip booked')
-      }).catch(err => console.log(err))
-  }
-}
- 
+  bookTrip = () => {
+    if (this.props.user.user_id) {
+      axios
+        .post("/api/booktrip", {
+          user_id: this.props.user.user_id,
+          departure_airport: this.state.departureAirport,
+          destination_planet: this.state.destinationPlanet,
+          dates: this.state.dates,
+          flight_time: this.state.time,
+          passenger_qty: this.state.passenger_qty,
+          flight_date: this.state.departureDate
+        })
+        .then(res => {
+          console.log("hit");
+          alert("Trip booked");
+        })
+        .catch(err => console.log(err));
+      this.props.history.push("/tripconfirmation");
+    }
+  };
 
   handleSelect(range) {
     console.log(range);
     this.setState({
       dates: range
-    })
+    });
   }
 
   toggleCalendar = hide => {
@@ -96,7 +79,14 @@ bookTrip = () => {
     });
   };
 
+  handleToggle = nextDisplay => {
+    this.setState({
+      display: nextDisplay
+    });
+  };
+
   render() {
+    console.log(this.props);
 
     let departureLocationSelect = "";
     console.log(this.state.displayCalendar);
@@ -133,37 +123,35 @@ bookTrip = () => {
     //         </select>
     //     )
     // }
-    console.log(this.state)
+    console.log(this.state);
     return (
-
-
       <div>
-      <img id="hero" src={earth} alt="earth" />
-
-
-        <section className="booking-inputs">
-          <div className="departureSearchBox">
-            <label>Departure</label>
-            <input
-              onChange={e => this.handleAdd(e)}
-              value={this.state.departure}
-              type="text"
-              name="departure"
-              placeholder="Departure"
-            />
-            <button
-              className="searchAirports"
-              onClick={() => this.handleAirportSearch("departure")}
-              name="departureSearch"
-            >
-              Search Airports
-            </button>
-            <div className="departureAirportSelect">
-              {departureLocationSelect}
+        <img id="hero" src={earth} alt="earth" />
+        <h1 className="booking-title">ADVENTURE STARTS HERE</h1>
+        {this.state.display === "bookTrip" ? (
+          <section className="booking-inputs">
+            <div className="departureSearchBox">
+              <label className="booking-label">Departure</label>
+              <input
+                onChange={e => this.handleAdd(e)}
+                value={this.state.departure}
+                type="text"
+                name="departure"
+                placeholder="Departure"
+              />
+              <button
+                className="searchAirports"
+                onClick={() => this.handleAirportSearch("departure")}
+                name="departureSearch"
+              >
+                Search Airports
+              </button>
+              <div className="departureAirportSelect">
+                {departureLocationSelect}
+              </div>
             </div>
-          </div>
 
-          {/* <label>Destination</label>
+            {/* <label>Destination</label>
           <input onChange={e => this.handleAdd(e)} value={this.state.destination} type="text" name="destination" placeholder="Destination" />
           <button className='searchDestinations'
             onClick={() => this.handleDestinationSearch('destination')}>
@@ -172,84 +160,105 @@ bookTrip = () => {
 
             {destinationLocationSelect} */}
 
-
-
-
-{/* <div className='trip-dates-wrapper'>
-
-          <label>Dates</label>
-          {this.state.displayCalendar === "hide" ? (
-            <div
-            onClick={e => this.toggleCalendar("display")}
-            className="trip-dates"
-            >
-              
-
-              {this.state.dates && Moment(this.state.dates.startDate._d)} - {this.state.dates && Moment(this.state.dates.endDate._d)}
-
+            <div className="destination-dropdown">
+              <label className="booking-label">Destination</label>
+              <br />
+              <select>
+                <option value="Moon">Moon</option>
+                <option value="Mars">Mars</option>
+                <option value="Jupiter">Jupiter</option>
+                <option value="Mercury">Mercury</option>
+                <option value="Venus">Venus</option>
+              </select>
             </div>
-          ) : (
-            <div>
-              <button
-                className="trip-dates"
-                onClick={e => this.toggleCalendar("hide")}
+
+            <div className="trip-dates-wrapper">
+              <label>Dates</label>
+              {this.state.displayCalendar === "hide" ? (
+                <div
+                  onClick={e => this.toggleCalendar("display")}
+                  className="trip-dates"
                 >
-                Confirm Dates
-              </button>
-
-              <DateRange
-                onInit={this.handleSelect}
-                onChange={this.handleSelect}
-                />
+                  {this.state.dates &&
+                    Moment(this.state.dates.startDate._d).toString()}
+                    <p>-</p>
+                  {this.state.dates &&
+                    Moment(this.state.dates.endDate._d).toString()}
+                </div>
+              ) : (
+                <div>
+                  <button
+                    className="trip-dates"
+                    onClick={e => this.toggleCalendar("hide")}
+                  >
+                    Confirm Dates
+                  </button>
+                  <div>
+                    {this.state.dates &&
+                      Moment(this.state.dates.startDate._d).toString()}
+                  </div>
+                  <div>
+                    {this.state.dates &&
+                      Moment(this.state.dates.endDate._d).toString()}
+                  </div>
+                  <DateRange
+                    onInit={this.handleSelect}
+                    onChange={this.handleSelect}
+                  />
+                </div>
+              )}
             </div>
-          )}
-          </div> */}
 
-
-          <div className='departureDate'>
-            <label className='departureDate'>Departure Date</label>
-            <input
-              onChange={e => this.handleAdd(e)}
-              name='departureDate'
-              placeholder='Departure Date'
-              value={this.state.departureDate}
-              type='date'
+            <div className="flight-times">
+              <label className="booking-label">Time</label>
+              <input
+                onChange={e => this.handleAdd(e)}
+                name="time"
+                type="time"
               />
-          </div>
+            </div>
 
-
-          <div className="flight-times">
-            <label>Time</label>
-            <input 
-              onChange={e => this.handleAdd(e)}
-              name="time" 
-              type="time" 
+            <div className="passenger-number">
+              <label className="booking-label">Passengers</label>
+              <input
+                onChange={e => this.handleAdd(e)}
+                type="number"
+                name="passenger_qty"
+                placeholder="1"
+                min="1"
+                max="20"
               />
-          </div>
+            </div>
 
-          <div className="passenger-number">
-            <label>Passengers</label>
-            <input
-              onChange={e => this.handleAdd(e)}
-              type="number"
-              name="passenger_qty"
-              placeholder="1"
-              min="1"
-              max="20"
-            />
-          </div>
+            <div
+              onClick={e => this.handleToggle("confirmation")}
+              className="nextbtn"
+            >
+              NEXT
+            </div>
+          </section>
+        ) : (
+          <div>
+            <h1>
+              {this.state.departureAirport}
+              {this.state.destinationPlanet}
+              {this.state.time}
+              {this.state.passenger_qty}
+              {this.state.departureDate}
+            </h1>
 
-          <button className="book-trip" onClick={() => this.bookTrip()}>
-            BOOK TRIP
-          </button>
-        </section>
+            <button className="book-trip" onClick={() => this.bookTrip()}>
+              BOOK TRIP
+            </button>
+          </div>
+        )}
       </div>
     );
   }
 }
 
 const mapStateToProps = reduxState => {
-  return reduxState
-}
+  return reduxState;
+};
 
 export default connect(mapStateToProps)(Booking);

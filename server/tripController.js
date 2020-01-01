@@ -6,7 +6,6 @@ module.exports = {
                 flight_date,
                 passenger_qty,
                 user_id } = req.body;
-                const destination_planet = 'Earth';
                 const db = req.app.get('db');
                 db.book_trip({ 
                     departure_airport,
@@ -15,8 +14,8 @@ module.exports = {
                     flight_date,
                     passenger_qty,
                     user_id })
-        .then(res => res.sendStatus(200))
-        .catch(err => res.status(500).send(err))
+        .then(response => res.sendStatus(200))
+        .catch(err => console.log(err))
     },
     getTrips: (req, res) => {
         const {id} = req.params;
