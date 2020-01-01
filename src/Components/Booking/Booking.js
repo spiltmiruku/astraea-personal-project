@@ -124,6 +124,7 @@ class Booking extends Component {
     //     )
     // }
     console.log(this.state);
+    console.log(this.state.dates);
     return (
       <div>
         <img id="hero" src={earth} alt="earth" />
@@ -163,7 +164,7 @@ class Booking extends Component {
             <div className="destination-dropdown">
               <label className="booking-label">Destination</label>
               <br />
-              <select>
+              <select onChange={e => this.handleAdd(e)} name='destinationPlanet'>
                 <option value="Moon">Moon</option>
                 <option value="Mars">Mars</option>
                 <option value="Jupiter">Jupiter</option>
@@ -241,11 +242,27 @@ class Booking extends Component {
           <div>
             <h1>
               {this.state.departureAirport}
+              </h1>
+
+              <h1>
               {this.state.destinationPlanet}
+              </h1>
+
+              <h1>
               {this.state.time}
+              </h1>
+
+              <h1>
               {this.state.passenger_qty}
-              {this.state.departureDate}
-            </h1>
+              </h1>
+
+              <h1>
+              {this.state.dates &&
+                      Moment(this.state.dates.startDate._d).toString()} 
+              - 
+              {this.state.dates &&
+                      Moment(this.state.dates.endDate._d).toString()}
+              </h1>
 
             <button className="book-trip" onClick={() => this.bookTrip()}>
               BOOK TRIP
