@@ -110,7 +110,7 @@ class AuthModal extends Component {
   if (this.props.user.username) 
     {
       console.log('hit')
-      return <Redirect from='/profile/authenticate' to='/' /> 
+      return <Redirect from='/profile/authenticate' to='/profile' /> 
     }
 
     return (

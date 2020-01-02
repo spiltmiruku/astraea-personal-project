@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import earth from "../../resources/Earth.png";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
+import earth from "../../resources/Earth.png";
 
 class Booking extends Component {
   constructor(props) {

@@ -46,6 +46,8 @@ app.get('/api/airports', ctrl.getAirports);
 
 app.post('/api/booktrip', tripCtrl.bookTrip);
 
+app.get('/api/upcomingtrips/:user_id', tripCtrl.getTrips);
+
 
 // app.get('api/auth/upcomingtrips')
 

@@ -110,8 +110,9 @@ html {
   border: yellow solid;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 150px;
-  font-weight: bold;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 8px;
   height: fit-content;
   margin-top: 10px;
   margin-bottom: 0;
@@ -418,14 +419,16 @@ cursor: pointer;
 }
 
 
-/* ----------BOOKING---------- */
+/* ----------BOOKING COMPONENT---------- */
 
 
 .booking-title {
+  border: palegreen solid;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
   font-size: 50px;
   font-weight: 700;
+  letter-spacing: 8px;
 }
 
 .booking-inputs {
@@ -530,6 +533,34 @@ cursor: pointer;
 input {
   margin: 20px;
 }
+
+
+
+/* ----------PROFILE COMPONENT---------- */
+
+
+.upcoming-title {
+  border: mediumvioletred solid;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  letter-spacing: 8px;
+  margin-top: 100px;
+}
+
+.generated-ticket {
+  border: yellow solid;
+  padding: 30px;
+  margin-top: 100px;
+}
+
+.ticket-info {
+  border: lime solid;
+  padding: 30px;
+
+}
+
+
 
 
 /* ----------BACKGROUND-SELECT COLOR---------- */
