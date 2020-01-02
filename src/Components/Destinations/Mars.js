@@ -20,7 +20,7 @@ class Mars extends Component {
             composed primarily of carbon dioxide. Mars has the largest dust storms in the solar system. They can last
           for months and cover the entire planet.
           </p>
-          <h3 className='trivia'>Trivia:</h3>
+          <h3 className='trivia'>Trivia</h3>
           <p className='desc'>
           NASA's Mars rover Opportunity (Oppy) got hit by a storm and it knocked the camera and wheels out, and her last words were "My battery is low and it is getting cold".
           <br />

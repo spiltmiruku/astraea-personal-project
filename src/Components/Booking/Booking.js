@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import earth from "../../resources/Earth.png";
-import {
-  DateRange,
-} from "react-date-range";
+import { DateRange } from "react-date-range";
 import Moment from "moment";
 
 class Booking extends Component {
@@ -164,7 +162,10 @@ class Booking extends Component {
             <div className="destination-dropdown">
               <label className="booking-label">Destination</label>
               <br />
-              <select onChange={e => this.handleAdd(e)} name='destinationPlanet'>
+              <select
+                onChange={e => this.handleAdd(e)}
+                name="destinationPlanet"
+              >
                 <option value="Moon">Moon</option>
                 <option value="Mars">Mars</option>
                 <option value="Jupiter">Jupiter</option>
@@ -182,7 +183,7 @@ class Booking extends Component {
                 >
                   {this.state.dates &&
                     Moment(this.state.dates.startDate._d).toString()}
-                    <p>-</p>
+                  <p>-</p>
                   {this.state.dates &&
                     Moment(this.state.dates.endDate._d).toString()}
                 </div>
@@ -240,29 +241,21 @@ class Booking extends Component {
           </section>
         ) : (
           <div>
+            <h1>{this.state.departureAirport}</h1>
+
+            <h1>{this.state.destinationPlanet}</h1>
+
+            <h1>{this.state.time}</h1>
+
+            <h1>{this.state.passenger_qty}</h1>
+
             <h1>
-              {this.state.departureAirport}
-              </h1>
-
-              <h1>
-              {this.state.destinationPlanet}
-              </h1>
-
-              <h1>
-              {this.state.time}
-              </h1>
-
-              <h1>
-              {this.state.passenger_qty}
-              </h1>
-
-              <h1>
               {this.state.dates &&
-                      Moment(this.state.dates.startDate._d).toString()} 
-              - 
+                Moment(this.state.dates.startDate._d).toString()}
+              -
               {this.state.dates &&
-                      Moment(this.state.dates.endDate._d).toString()}
-              </h1>
+                Moment(this.state.dates.endDate._d).toString()}
+            </h1>
 
             <button className="book-trip" onClick={() => this.bookTrip()}>
               BOOK TRIP

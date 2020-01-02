@@ -21,7 +21,7 @@ class Jupiter extends Component {
             storm bigger than Earth that has raged for hundreds of years.
           </p>
 
-          <h3 className='trivia'>Trivia:</h3>
+          <h3 className='trivia'>Trivia</h3>
           <p className='desc'>
             Jupiter's moons are named after his lovers and affairs.
             <br />

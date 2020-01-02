@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Booking from '../Booking/Booking';
+// import Booking from '../Booking/Booking';
 
 class TripConfirmation extends Component {
     render(){

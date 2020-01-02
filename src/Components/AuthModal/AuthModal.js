@@ -121,11 +121,13 @@ class AuthModal extends Component {
               value={password}
               onChange={e => this.handleInput(e)}
             />
-            <button type="submit" onClick={this.login}>
-              Log in
-            </button>
+
+            <div className="box-button-container" type="submit" onClick={this.login}>
+              <button className='auth-btn'>LOG IN</button>
+            </div>
 
             <div className="btn-container">
+              <h1 className='account-text'>CREATE A NEW ACCOUNT</h1>
               <div
                 onClick={e => this.handleToggle("register")}
                 className={`discover-btn effect01 ${
@@ -178,9 +180,13 @@ class AuthModal extends Component {
               value={passenger_lastname}
               onChange={e => this.handleInput(e)}
             />
-            <button type="submit" onClick={this.register}>Register</button>
+
+            <div className="box-button-container" type="submit" onClick={this.register}>
+              <button className='auth-btn'>REGISTER</button>
+            </div>
 
             <div className="btn-container">
+              <h1 className='account-text'>RETURNING CLIENT</h1>
               <div
                 onClick={e => this.handleToggle("login")}
                 className={`discover-btn effect01 ${

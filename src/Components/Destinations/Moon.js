@@ -19,7 +19,7 @@ class Moon extends Component {
             year. Eventually, the Moon will take 47 days instead of the current
             27.3 to orbit the Earth.
           </p>
-          <h3 className='trivia'>Trivia:</h3>
+          <h3 className='trivia'>Trivia</h3>
           <p className='desc'>
               Sometimes artists mistakenly draw stars in the shadowy parts of the crescent moon. This is as if suddenly that part of the moon is invisible instead of just being in the shadow.
           </p>

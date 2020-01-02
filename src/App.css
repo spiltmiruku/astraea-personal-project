@@ -269,7 +269,7 @@ cursor: pointer;
 }
 
 .login {
-  border: salmon solid;
+  border: palevioletred solid;
   margin-top: 200px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -282,6 +282,45 @@ cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   letter-spacing: 4px;
+}
+
+.account-text {
+  border: mediumspringgreen solid;
+  padding: 20px;
+}
+
+.box-button-container {
+  border: red solid;
+  padding: 20px;
+  text-align: center;
+  margin: 10px auto 0;
+  background-color: #0F1013
+}
+
+.auth-btn {
+  display: inline-block;
+  background-color: #0F1013;
+  color: #fff;
+  font-size: 20px;
+  font-family: Courier, sans-serif;
+  padding: 20px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 8px solid #737373;
+  /* border-radius: 5px; */
+  -moz-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  box-shadow: 0 2px 3px #000;
+  position: relative;
+}
+
+.auth-btn:hover {
+  background-color: #fff;
+  color: #0F1013;
+  border-bottom-width: 0;
+  margin-top: 0.2em;
+  cursor: pointer;
 }
 
 
