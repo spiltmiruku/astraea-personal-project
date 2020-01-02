@@ -9,6 +9,7 @@ import Moon from "./Components/Destinations/Moon";
 import Mars from "./Components/Destinations/Mars";
 import Jupiter from "./Components/Destinations/Jupiter";
 import TripConfirmation from "./Components/TripConfirmation/TripConfirmation";
+import Profile from "./Components/Profile/Profile";
 
 export default (
   <Switch>
@@ -21,5 +22,6 @@ export default (
     <Route path="/mars" component={Mars} />
     <Route path="/jupiter" component={Jupiter} />
     <Route path="/tripconfirmation" component={TripConfirmation} />
+    <Route path="/profile" component={Profile} />
   </Switch>
 );

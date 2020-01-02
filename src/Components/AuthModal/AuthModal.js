@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/reducer";
+import { Redirect } from 'react-router-dom';
 
 class AuthModal extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class AuthModal extends Component {
       .then(user => {
         console.log('success')
         this.props.updateUser(user.data);
-        this.setState({ username: "", password: "" });
+        if (!this.props.user.username) this.setState({ username: "", password: "" });
         alert('Login successful')
       })
       .catch(err => console.log(err));
@@ -94,6 +95,7 @@ class AuthModal extends Component {
   }
 
   render() {
+    console.log(this.props)
     const {
       username,
       password,
@@ -102,6 +104,15 @@ class AuthModal extends Component {
       passenger_lastname
     } = this.state;
     // const { user } = this.props;
+
+    // {this.props.user.username ? { return <Redirect to='/' /> } : null }
+
+  if (this.props.user.username) 
+    {
+      console.log('hit')
+      return <Redirect from='/profile/authenticate' to='/' /> 
+    }
+
     return (
       <div>
         {this.state.display === "login" ? (
@@ -205,4 +216,10 @@ class AuthModal extends Component {
   }
 }
 
-export default connect(null, { updateUser })(AuthModal);
+function mapStateToProps (state) {
+  return {
+    user: state.user
+  }
+} 
+
+export default connect(mapStateToProps, { updateUser })(AuthModal);
