@@ -38,18 +38,14 @@ massive(CONNECTION_STRING).then(db => {
 app.post('/api/auth/register', authCtrl.register);
 app.post('/api/auth/login', authCtrl.login);
 app.post('/api/logout', authCtrl.logout);
-
-
 app.get('/api/auth/:user_id', authCtrl.getUser);
 
 app.get('/api/airports', ctrl.getAirports);
-
 app.post('/api/booktrip', tripCtrl.bookTrip);
 
 app.get('/api/upcomingtrips/:user_id', tripCtrl.getTrips);
-
-
-// app.get('api/auth/upcomingtrips')
+app.put('/api/upcomingtrips', tripCtrl.editTrip);
+app.delete('/api/upcomingtrips/:id', tripCtrl.deleteTrip);
 
 
 const port = SERVER_PORT;

@@ -18,7 +18,8 @@ CREATE TABLE astraea_bookings (
     departure_airport TEXT,
     destination_planet TEXT,
     flight_time TIME,
-    flight_date DATE,
+    departure_date DATE,
+    return_date DATE,
     passenger_qty INTEGER,
     user_id INTEGER REFERENCES astraea_users(user_id)
 );

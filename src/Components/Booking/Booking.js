@@ -14,8 +14,10 @@ class Booking extends Component {
       departureLocationAirports: [],
       destinationPlanet: "",
       destinationLocations: [],
-      dates: "",
       time: "",
+      departureDate: '',
+      returnDate: '',
+      dates: '',
       passenger_qty: 1,
       displayCalendar: "hide",
       display: "bookTrip"
@@ -49,7 +51,8 @@ class Booking extends Component {
           user_id: this.props.user.user_id,
           departure_airport: this.state.departureAirport,
           destination_planet: this.state.destinationPlanet,
-          dates: this.state.dates,
+          departure_date: this.state.dates.startDate,
+          return_date: this.state.dates.endDate,
           flight_time: this.state.time,
           passenger_qty: this.state.passenger_qty,
           flight_date: this.state.departureDate
@@ -181,10 +184,10 @@ class Booking extends Component {
                   className="trip-dates"
                 >
                   {this.state.dates &&
-                    Moment(this.state.dates.startDate._d).toString()}
+                    Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
                   <p>-</p>
                   {this.state.dates &&
-                    Moment(this.state.dates.endDate._d).toString()}
+                    Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
                 </div>
               ) : (
                 <div>
@@ -194,13 +197,13 @@ class Booking extends Component {
                   >
                     Confirm Dates
                   </button>
-                  <div>
+                  <div className='date-display'>
                     {this.state.dates &&
-                      Moment(this.state.dates.startDate._d).toString()}
+                      Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
                   </div>
                   <div>
                     {this.state.dates &&
-                      Moment(this.state.dates.endDate._d).toString()}
+                      Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
                   </div>
                   <DateRange
                     onInit={this.handleSelect}
@@ -250,10 +253,10 @@ class Booking extends Component {
 
             <h1>
               {this.state.dates &&
-                Moment(this.state.dates.startDate._d).toString()}
+                Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
               -
               {this.state.dates &&
-                Moment(this.state.dates.endDate._d).toString()}
+                Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
             </h1>
 
             <button className="book-trip" onClick={() => this.bookTrip()}>

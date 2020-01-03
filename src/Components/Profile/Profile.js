@@ -3,13 +3,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout, updateUser } from "../../redux/reducer";
-import rocket from '../../resources/Rocket.png';
+import Booking from '../Booking/Booking';
+import TripDisplay from '../TripDisplay/TripDisplay';
 
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             upcomingTrips: [],
+            isEditing: false,
         }
         this.logout = this.logout.bind(this);
     }
@@ -40,6 +42,23 @@ class Profile extends Component {
         this.upcomingTrips()
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+
+    editTrip = id => {
+        let trip = { ...this.state };
+        delete trip.isEditing;
+        this.props.editTrip(id, trip);
+        this.setState({
+            isEditing: false
+        });
+    }
+
+
     render() {
         // console.log(this.state, 'hit')
         return (
@@ -54,20 +73,11 @@ class Profile extends Component {
                 <div className='ticket-box'>
                   {this.state.upcomingTrips.map(booking => (
 
-                      <div className='generated-ticket'>
-                          <h1 className='from-to'>
-                          <span className='ticket-airport'>{booking.departure_airport}</span>
-                          <p className='dashes'>------ <img id="rocket-icon" src={rocket} alt="rocket" /> ------</p>
-                        <span className='ticket-planet'>{booking.destination_planet}</span>
-                          </h1>
-                        
-                        <span className='ticket-time'>{booking.flight_time}</span>
-                        <span className='ticket-date'>{booking.flight_date}</span>
-                        <span className='ticket-qty'>{booking.passenger_qty}</span>
-                      </div>
+             <TripDisplay booking={booking} />
+
                   ))} 
                 </div>
-                
+          
             </div>
         )
     }
