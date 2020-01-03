@@ -1,10 +1,10 @@
 import React from 'react';
-import venus from '../../resources/Venus.png';
+import wings from '../../resources/Wings.png'
 
 const About = () => {
     return(
         <div className='about-box'>
-        <img src={venus} alt='Venus' className='venus' />
+        <img src={wings} alt='Wings' className='wings' />
             <div className='title-content-wrapper'>
             <h1 className='page-title'>ASTRAEA</h1>
             <section className='about'>

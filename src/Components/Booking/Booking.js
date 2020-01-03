@@ -55,7 +55,6 @@ class Booking extends Component {
           flight_date: this.state.departureDate
         })
         .then(res => {
-          console.log("hit");
           alert("Trip booked");
         })
         .catch(err => console.log(err));

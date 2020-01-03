@@ -17,7 +17,6 @@ class AuthModal extends Component {
     };
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
   }
 
   handleToggle = nextDisplay => {
@@ -85,14 +84,7 @@ class AuthModal extends Component {
       });
   }
 
-  logout() {
-    axios
-      .get("/api/logout")
-      .then(() => {
-        this.props.updateUser({});
-      })
-      .catch(error => console.log(error));
-  }
+ 
 
   render() {
     console.log(this.props)
@@ -103,13 +95,10 @@ class AuthModal extends Component {
       passenger_firstname,
       passenger_lastname
     } = this.state;
-    // const { user } = this.props;
-
-    // {this.props.user.username ? { return <Redirect to='/' /> } : null }
+   
 
   if (this.props.user.username) 
     {
-      console.log('hit')
       return <Redirect from='/profile/authenticate' to='/profile' /> 
     }
 
@@ -118,25 +107,33 @@ class AuthModal extends Component {
         {this.state.display === "login" ? (
           <section className="login">
             <h1 className="auth-title">LOG IN</h1>
+
+            <div className='input-and-btn'>
+
+            <div className='auth-input-fields'>
             <input
+              className='auth-input'
               type="text"
               name="username"
               placeholder="Username"
               value={username}
               onChange={e => this.handleInput(e)}
             />
+            
             <input
+              className='auth-input'
               type="password"
               name="password"
               placeholder="Password"
               value={password}
               onChange={e => this.handleInput(e)}
             />
+          </div>
 
             <div className="box-button-container" type="submit" onClick={this.login}>
               <button className='auth-btn'>LOG IN</button>
             </div>
-
+            </div>
             <div className="btn-container">
               <h1 className='account-text'>CREATE A NEW ACCOUNT</h1>
               <div
@@ -156,7 +153,12 @@ class AuthModal extends Component {
         {this.state.display === "register" ? (
           <section className="register">
             <h1 className="auth-title">REGISTER</h1>
+
+            <div className='input-and-btn'>
+
+            <div className='auth-input-fields'>
             <input
+              className='auth-input'
               type="text"
               name="username"
               placeholder="Username"
@@ -164,6 +166,7 @@ class AuthModal extends Component {
               onChange={e => this.handleInput(e)}
             />
             <input
+              className='auth-input'
               type="password"
               name="password"
               placeholder="Password"
@@ -171,6 +174,7 @@ class AuthModal extends Component {
               onChange={e => this.handleInput(e)}
             />
             <input
+              className='auth-input'
               type="email"
               name="email"
               placeholder="Email"
@@ -178,6 +182,7 @@ class AuthModal extends Component {
               onChange={e => this.handleInput(e)}
             />
             <input
+              className='auth-input'
               type="text"
               name="passenger_firstname"
               placeholder="First Name"
@@ -185,17 +190,19 @@ class AuthModal extends Component {
               onChange={e => this.handleInput(e)}
             />
             <input
+              className='auth-input'
               type="text"
               name="passenger_lastname"
               placeholder="Last Name"
               value={passenger_lastname}
               onChange={e => this.handleInput(e)}
             />
+          </div>
 
             <div className="box-button-container" type="submit" onClick={this.register}>
               <button className='auth-btn'>REGISTER</button>
             </div>
-
+            </div>
             <div className="btn-container">
               <h1 className='account-text'>RETURNING CLIENT</h1>
               <div

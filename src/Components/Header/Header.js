@@ -25,31 +25,33 @@ class Header extends Component {
   render() {
     return (
       <div className="App">
-         <header id="header-container">
-           <Link className="links" to="/">
-           <img src={logo} alt="logo" className="logo" />
-           </Link>
-           
-
-            <div className="account-box">
+        <Link to="/">
+          <img src={logo} alt="logo" className="logo" />
+        </Link>
+        <div className="header">
+          <div className="account-box">
             <Link to="/profile/authenticate">
               <img src={icon} alt="profile icon" className="icon" />
-    <p className="account"> {this.props.user && this.props.user.passenger_firstname ? this.props.user.passenger_firstname : 'ACCOUNT'}</p>
+              <p className="account">
+                {" "}
+                {this.props.user && this.props.user.passenger_firstname
+                  ? this.props.user.passenger_firstname
+                  : "ACCOUNT"}
+              </p>
             </Link>
-            </div>
-
             <FontAwesomeIcon
               icon="bars"
               id="hamburger"
               onClick={this.handleToggle}
             />
-          </header>
+          </div>
+         
+        </div>
+
         {!this.state.toggleMenu ? (
-         <>
-         </>
+          <></>
         ) : (
           <>
-           
             <nav id="nav-menu">
               <Link className="links" to="/">
                 Main
@@ -71,4 +73,4 @@ class Header extends Component {
   }
 }
 
-export default connect((state => ({user: state.user})) ) (Header);
+export default connect(state => ({ user: state.user }))(Header);
