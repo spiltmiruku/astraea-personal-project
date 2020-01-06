@@ -23,13 +23,96 @@
   .title {
     font-family: "Montserrat", sans-serif;
     color: #fff;
-    font-size: 60px;
+    font-size: 100px;
     font-weight: 700;
     letter-spacing: 8px;
     height: fit-content;
     margin-top: 10px;
     margin-bottom: 0;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    top: 200px;
+    /* text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff; */
   }
+
+
+
+
+  .planet-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-align: center;
+    width: 65%;
+    height: 250px;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 200px;
+     user-select: none;
+  }
+  
+  .planet-title b{
+    font: 700 19vh "Montserrat";
+    color: #fff;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #BCFFCB, 0 0 0.5em #BCFFCB, 0 0 0.1em #BCFFCB, 0 10px 3px #0f1013;
+  }
+  .planet-title b span{
+    animation: blink linear infinite 2s;
+  }
+  .planet-title b span:nth-of-type(2){
+    animation: blink linear infinite 3s;
+  }
+  @keyframes blink {
+    78% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    79%{
+       color: #333;
+    }
+    80% {
+      
+      text-shadow: none;
+    }
+    81% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    82% {
+      color: #333;
+      text-shadow: none;
+    }
+    83% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+    92% {
+      color: #333;
+      text-shadow: none;
+    }
+    92.5% {
+      color: inherit;
+      text-shadow: inherit;
+    }
+  }
+  
+  
+
+
+
+
   
   .border-on .title {
     border: yellow solid;
@@ -44,10 +127,11 @@
     border: pink solid;
   }
   
-  #hero:hover {
+  /* #hero:hover {
     opacity: 0.3;
   }
-  
+   */
+
   .sub-heading {
     padding: 30px 0px;
     font-family: "Playfair Display", serif;
@@ -78,7 +162,7 @@
     height: 3px;
     width: 50px;
     background-color: #737373;
-    margin: 50px 5px;
+    margin: 20px 5px;
   }
   
   .positionIndicator.active,

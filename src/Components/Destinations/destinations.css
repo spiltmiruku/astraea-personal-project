@@ -6,11 +6,11 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 10px;
   }
   
   .planet-name {
-    font-size: 60px;
+    font-size: 80px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     letter-spacing: 8px;
@@ -39,7 +39,7 @@
     letter-spacing: 1px;
     line-height: 30px;
     padding: 20px;
-    height: 255px;
+    height: auto;
     width: 600px;
     line-height: 30px;
     display: flex;

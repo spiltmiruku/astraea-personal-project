@@ -21,11 +21,13 @@ class Landing extends Component {
 
   render() {
     return (
+
       <div>
         {this.state.display === "moon" ? (
           <section className="destination-box">
+          <div className="planet-title"><b>M<span>O</span>O<span>N</span></b></div>
             <p className="numbering"> 001 </p>
-            <h1 className="title"> MOON </h1>
+            {/* <h1 className="title"> MOON </h1> */}
             <img id="hero" src={moon} alt="moon" />
             <h3 className="sub-heading"> Walk on the dark side </h3>
             <div className="btn-container">
@@ -40,8 +42,9 @@ class Landing extends Component {
 
         {this.state.display === "mars" ? (
           <section className="destination-box">
+        <div className="planet-title"><b><span>MA</span>R<span>S</span></b></div>
             <p className="numbering"> 002 </p>
-            <h1 className="title"> MARS </h1>
+            {/* <h1 className="title"> MARS </h1> */}
             <img id="hero" src={mars} alt="mars" />
             <h3 className="sub-heading"> The red planet </h3>
             <div className="btn-container">
@@ -56,8 +59,10 @@ class Landing extends Component {
 
         {this.state.display === "jupiter" ? (
           <section className="destination-box">
+        <div className="planet-title"><b>J<span>UP</span>I<span>TER</span></b></div>
+
             <p className="numbering"> 003 </p>
-            <h1 className="title"> JUPITER </h1>
+            {/* <h1 className="title"> JUPITER </h1> */}
             <img id="hero" src={jupiter} alt="jupiter" />
             <h3 className="sub-heading"> Behold the giant </h3>
             <div className="btn-container">
