@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout, updateUser } from "../../redux/reducer";
+import { upcomingTrips } from '../../redux/tripReducer';
 import TripDisplay from '../TripDisplay/TripDisplay';
 
 class Profile extends Component {
@@ -25,14 +26,15 @@ class Profile extends Component {
           .catch(error => console.log(error));
       }
 
-    upcomingTrips = () => {
-        console.log(this.props)
-        if (this.props.user.user_id) {
+    upcomingTrips = (user) => {
+
+        console.log(this.state)
+        if (this.props.reducer.user.user_id) {
             axios
-                .get(`/api/upcomingtrips/${this.props.user.user_id}`).then(res => {
-                    console.log(res)
+                .get(`/api/upcomingtrips/${this.props.reducer.user.user_id}`).then(bookedTrips => {
+                    this.props.upcomingTrips(bookedTrips.data)
                     this.setState({
-                        upcomingTrips: res.data
+                        upcomingTrips: bookedTrips.data
                     });
                 });
         }
@@ -77,10 +79,10 @@ class Profile extends Component {
                 
                 <h1 className='upcoming-title'>UPCOMING TRIPS</h1>
 
-                {/* <h2>Welcome back, {this.props.user && this.props.user.passenger_firstname}</h2> */}
+                {/* <h2>Welcome back, {this.props.reducer.user && this.props.reducer.user.passenger_firstname}</h2> */}
 
                 <div className='ticket-box'>
-                  {this.state.upcomingTrips.map((booking, i) => (
+                  {this.props.tripReducer.bookedTrips.map((booking, i) => (
              <TripDisplay key={i} booking={booking} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/>
 
                   ))} 
@@ -89,12 +91,10 @@ class Profile extends Component {
             </div>
         )
     }
-
-    
 }
 
 const mapStateToProps = reduxState => {
     return reduxState;
 }
 
-export default connect(mapStateToProps, { logout, updateUser }) (Profile);
+export default connect(mapStateToProps, { logout, updateUser, upcomingTrips })(Profile);

@@ -63,7 +63,7 @@ class AuthModal extends Component {
         passenger_lastname
       })
       .then(user => {
-        console.log('register successful', user)
+        // console.log('register successful', user)
         this.setState({
           username: "",
           password: "",
@@ -225,7 +225,7 @@ class AuthModal extends Component {
 
 function mapStateToProps (state) {
   return {
-    user: state.user
+    user: state.reducer.user
   }
 } 
 

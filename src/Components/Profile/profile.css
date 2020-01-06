@@ -23,11 +23,22 @@
     border: white solid;
     font-family: "Montserrat", sans-serif;
     padding: 30px;
-    margin-top: 100px;
+    margin: 100px 50px 0;
     height: 180px;
     width: 600px;
   }
   
+
+  .edit-del-btns {
+    margin-top: 20px;  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+
   .ticket-airport,
   .ticket-planet,
   .ticket-time,
@@ -35,6 +46,7 @@
   .ticket-qty {
     padding: 20px;
   }
+
   
   .border-on
   .ticket-airport,

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./booking.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
 import earth from "../../resources/Earth.png";
@@ -58,10 +58,10 @@ class Booking extends Component {
   }
 
   bookTrip = () => {
-    if (this.props.user.user_id) {
+    if (this.props.reducer.user.user_id) {
       axios
         .post("/api/booktrip", {
-          user_id: this.props.user.user_id,
+          user_id: this.props.reducer.user.user_id,
           departure_airport: this.state.departureAirport,
           destination_planet: this.state.destinationPlanet,
           departure_date: this.state.dates.startDate,
@@ -99,7 +99,7 @@ class Booking extends Component {
   };
 
   render() {
-    if (!this.props.user.username) {
+    if (!this.props.reducer.user.username) {
       // return <Redirect from='/booking' to='/profile/authenticate' />
     }
 

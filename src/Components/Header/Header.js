@@ -74,4 +74,4 @@ class Header extends Component {
   }
 }
 
-export default connect(state => ({ user: state.user }))(Header);
+export default connect(state => ({ user: state.reducer.user }))(Header);
