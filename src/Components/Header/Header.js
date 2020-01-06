@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './header.css';
 import { connect } from "react-redux";
 import logo from "../../resources/astraea_logo.svg";
 import icon from "../../resources/profile_icon.png";

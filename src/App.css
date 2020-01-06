@@ -1,9 +1,9 @@
 html {
-  background-color: #0F1013;
+  background-color: #0f1013;
 }
 
 .App {
-  background-color: #0F1013;
+  background-color: #0f1013;
   color: #fff;
   height: 100%;
   width: 100%;
@@ -11,182 +11,32 @@ html {
 }
 
 
-/* ----------HEADER COMPONENT---------- */
-
-.header {
-  display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-	align-items: flex-start;
-}
-
-.logo {
-  border: cyan solid;
-  height: 25px;
-  padding-left: 3%;
-  padding-top: 2%;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-}
-
-.account-box {
-  border: red solid;
-  align-items: center;
-  height: fit-content;
-  width: 150px;
-  margin-top: 30px;
-  text-decoration: none;
-  top: 10;
-}
-
-.account-box > a {
-  display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-}
-
-.icon {
-  height: 15px;
-  margin-right: 10px;
-  margin-bottom: 6px;
-}
-
-.account {
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-}
-
-#hamburger {
-  border: springgreen solid;
-  padding: 20px;
-  position: fixed;
-}
-
-#hamburger:hover {
-  cursor: pointer;
-}
-
-#nav-menu {
-  border: rebeccapurple solid;
-  height: 50px;
-  padding: 30px;
-  margin-top: 100px;
-}
-
-.links {
-  border: violet solid;
-  padding: 20px 50px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 28px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.links:hover {
-  border-bottom: 5px #fff solid;
-}
-
-
-/* ----------LANDING COMPONENT---------- */
-
-
-.destination-box {
-  border: blue solid;
-  margin-top: 60px;
-  height: fit-content
-}
-
-.numbering {
-  border: hotpink solid;
-  height: 30px;
-  font-family: "Roboto Slab", serif;
-  font-weight: 300;
-  color: #737373;
-}
-
-.title {
-  border: yellow solid;
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: 8px;
-  height: fit-content;
-  margin-top: 10px;
-  margin-bottom: 0;
-
-}
-
-#hero {
-  border: pink solid;
-  height: 400px;
-  width: auto;
-}
-
-#hero:hover {
-  opacity: 0.3;
-}
-
-.sub-heading {
-  border: paleturquoise solid;
-  padding: 30px 0px;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 9px;
-}
-
-/* .navigation-btn {
-  padding: 18px 60px;
-  font-family: "Open Sans Condensed", sans-serif;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  line-height: 48px;
-  letter-spacing: 4px;
-  border: 2px solid #fff;
-  background-color: #0F1013;
-  opacity: 1;
-} */
-
-/* .navigation-btn:hover {
-  color: #0F1013;
-  background-color: #fff;
-  padding: 15px 50px; 
-} */
-
 
 .btn-container {
-  border: sandybrown solid;
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-  background-color: #0F1013;
-  padding:  40px 0px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f1013;
+  padding: 40px 0px;
 }
+/* 
+.border-on .btn-container {
+  border: red solid;
+} */
 
 .discover-btn {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   letter-spacing: 0.1em;
   cursor: pointer;
   font-size: 18px;
   font-weight: 400;
   line-height: 45px;
-  max-width: 160px;
+  width: 160px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 100%;
 }
 .discover-btn:hover {
   text-decoration: none;
@@ -195,464 +45,57 @@ html {
 .effect01 {
   color: white;
   border: 4px solid white;
-/*   box-shadow:0px 0px 0px 1px #000 inset; */
-  background-color: 0F1013;
+  /*   box-shadow:0px 0px 0px 1px #000 inset; */
+  background-color: 0f1013;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease-in-out;
 }
 .effect01:hover {
   border: 4px solid #666;
-  background-color: #FFF;
-  box-shadow:0px 0px 0px 4px #EEE inset;
-  color: #0F1013;
-}
-
-  /*btn_text*/
-  .effect01 span {
-    transition: all 0.2s ease-out;
-    z-index: 2;
-  }
-  .effect01:hover span{
-    letter-spacing: 0.13em;
-    color: #333;
-  }
-  
-  /*highlight*/
-  .effect01:after {
-    background: #FFF;
-    border: 0px solid #000;
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: .8;
-    position: absolute;
-    top: -50px;
-    -webkit-transform: rotate(35deg);
-            transform: rotate(35deg);
-    width: 50px;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);/*easeOutCirc*/
-    z-index: 1;
-  }
-  .effect01:hover:after {
-    background: #FFF;
-    border: 20px solid #000;
-    opacity: 0;
-    left: 120%;
-    -webkit-transform: rotate(40deg);
-            transform: rotate(40deg);
-  }
-
-.positionBars {
-  border: cyan solid;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-  align-content: center;
-}
-
-
-.positionIndicator {
-  height: 3px;
-  width: 50px;
-  background-color: #737373;
-  margin: 50px 5px;
-}
-
-.positionIndicator.active,
-.positionIndicator:hover {
-background-color: #fff;
-cursor: pointer;
-}
-
-
-/* ----------AUTHMODAL COMPONENT---------- */
-
-
-.auth-title {
-  font-size: 70px;
-}
-
-.auth-input {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 400;
-  color: #9e9e9e;
-  background-color: #0F1013;
-  border: 0;
-  border-bottom: 2px solid #2c2e30;
-  outline: none;
-}
-
-.auth-input:active {
-  background-color: #0F1013;
-}
-
-.login {
-  border: blue solid;
-  margin-top: 200px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  letter-spacing: 4px;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.register {
-  border: yellow solid;
-  margin-top: 200px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  letter-spacing: 4px;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.auth-input-fields {
-  border: peachpuff solid;
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.account-text {
-  border: mediumspringgreen solid;
-  padding: 20px;
-}
-
-.box-button-container {
-  border: red solid;
-  padding: 20px;
-  text-align: center;
-  margin: 10px auto 0;
-  background-color: #0F1013
-}
-
-.auth-btn {
-  display: inline-block;
-  background-color: #0F1013;
-  font-family: 'Open Sans Condensed', sans-serif;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 35px;
-  padding: 10px 25px;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-bottom: 8px solid #666;
-  /* border-radius: 5px; */
-  -moz-transition: 0.1s;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
-  box-shadow: 0 2px 3px #000;
-  position: relative;
-}
-
-.auth-btn:hover {
   background-color: #fff;
-  color: #0F1013;
-  border-bottom-width: 0;
-  margin-top: 0.2em;
-  cursor: pointer;
+  box-shadow: 0px 0px 0px 4px #eee inset;
+  color: #0f1013;
 }
 
-
-
-/* ----------ABOUT COMPONENT---------- */
-
-
-.about-box {
-  border: mediumslateblue solid;
-  display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-  align-content: center;
-  margin-top: 60px;
+/*btn_text*/
+.effect01 span {
+  transition: all 0.2s ease-out;
+  z-index: 2;
+}
+.effect01:hover span {
+  letter-spacing: 0.13em;
+  color: #333;
 }
 
-.wings{
-  border: lavenderblush solid;
-  height: 400px;
-  margin-top: 100px;
-  margin-right: 200px;
+/*highlight*/
+.effect01:after {
+  background: #fff;
+  border: 0px solid #000;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.8;
+  position: absolute;
+  top: -50px;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+  width: 50px;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1); /*easeOutCirc*/
+  z-index: 1;
 }
-
-.title-content-wrapper {
-  border: khaki solid;
-  width: 450px;
-  display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-}
-
-.page-title {
-  border: lightskyblue solid;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 50px;
-}
-
-.about {
-  border: red solid;
-  font-family: 'Roboto Slab', serif;
-  color: #737373;
-  text-align: left;
-  line-height: 30px;
-  letter-spacing: 2px;
-}
-
-/* ----------DESTINATIONS COMPONENTS---------- */
-
-
-.wrap-all-planets {
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-  align-items: center;
-  margin-top: 150px;
-}
-
-.planet-name {
-  border: plum solid;
-  font-size: 60px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  letter-spacing: 8px;
-  line-height: 62px;
-  margin: 20px;
-}
-
-.planet-subtitle {
-  border: lemonchiffon solid;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  margin: 20px;
-}
-
-.desc {
-  border: springgreen solid;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 300;
-  color: #737373;
-  letter-spacing: 1px;
-  line-height: 30px;
-  padding: 20px;
-  height: 255px;
-  width: 600px;
-  line-height: 30px;
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-}
-
-.trivia {
-  border: tomato solid;
-  margin: 20px;
-}
-
-
-/* ----------BOOKING COMPONENT---------- */
-
-
-.booking-title {
-  border: palegreen solid;
-  font-family: 'Montserrat', sans-serif;
-  color: #fff;
-  font-size: 50px;
-  font-weight: 700;
-  letter-spacing: 8px;
-}
-
-.booking-inputs {
-  border: slateblue solid;
-  height: 300px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.departureSearchBox {
-  border: aquamarine solid;
-  margin-right: 10px;
-  display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.searchAirports {
-  border: palevioletred solid;
-  color: #FFF;
-  background-color: #0F1013;
-  height: 50px;
-  width: 120px;
-}
-
-.departureAirportSelect {
-  margin-top: 20px;
-}
-
-
-
-.destination-dropdown {
-  border: orange solid;
-  height: 50px;
-  width: 180px;
-  display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.trip-dates-wrapper {
-  border: mediumslateblue solid;
-  display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.date-display {
-  border: plum solid;
-}
-
-.flight-times {
-  border: yellow solid;
-  display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.passenger-number {
-  border: tomato solid;
-  display: flex;
-  flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.nextbtn {
-  border: lawngreen solid;
-  height: 50px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.book-trip {
-  border: palegreen solid;
-  color: #FFF;
-  background-color: #0F1013;
-  height: 50px;
-  width: 120px;
-}
-
-input {
-  margin: 20px;
-}
-
-
-/* ----------TRIPCONFIRMATION COMPONENT---------- */
-
-
-.welcome-msg {
-  border: aquamarine solid;
-  font-size: 40px;
-  margin-top: 200px;
-  letter-spacing: 8px;
-}
-
-.confirmation-info {
-  border: crimson solid;
-  margin-top: 20px;
-  letter-spacing: 2px;
-}
-
-/* ----------PROFILE COMPONENT---------- */
-
-
-.upcoming-title {
-  border: mediumvioletred solid;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 60px;
-  letter-spacing: 8px;
-  margin-top: 100px;
-}
-
-.ticket-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.generated-ticket {
-  border: white solid;
-  font-family: 'Montserrat', sans-serif;
-  padding: 30px;
-  margin-top: 100px;
-  height: 180px;
-  width: 600px;
-}
-
-.ticket-airport, .ticket-planet, .ticket-time, .ticket-date, .ticket-qty {
-  border: greenyellow solid;
-  padding: 20px;
-}
-
-.ticket-airport, .ticket-planet {
-  font-size: 30px;
-}
-
-.from-to {
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: flex-start;
-	align-content: stretch;
-}
-
-.dashes {
-  font-size: 50px;
-}
-
-#rocket-icon {
-  height: 30px;
+.effect01:hover:after {
+  background: #fff;
+  border: 20px solid #000;
+  opacity: 0;
+  left: 120%;
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
 }
 
 
 
 /* ----------BACKGROUND-SELECT COLOR---------- */
-
 
 ::selection {
   background: rgb(255, 255, 255); /* WebKit/Blink Browsers */
@@ -660,8 +103,6 @@ input {
 ::-moz-selection {
   background: rgb(255, 255, 255); /* Gecko Browsers */
 }
-
-
 
 /* FONTS */
 

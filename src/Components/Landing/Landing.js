@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './landing.css';
 import { Link } from "react-router-dom";
 import moon from "../../resources/Moon.png";
 import mars from "../../resources/Mars.png";

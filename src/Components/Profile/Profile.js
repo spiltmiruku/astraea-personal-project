@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import './profile.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout, updateUser } from "../../redux/reducer";
-import Booking from '../Booking/Booking';
 import TripDisplay from '../TripDisplay/TripDisplay';
 
 class Profile extends Component {
@@ -48,16 +48,23 @@ class Profile extends Component {
         });
     };
 
-
-    editTrip = id => {
-        let trip = { ...this.state };
-        delete trip.isEditing;
-        this.props.editTrip(id, trip);
-        this.setState({
-            isEditing: false
-        });
+    editTrip = (id, trip) => {
+        axios.put(`/api/upcomingtrips?id=${id}`, trip)
+        .then(res => {
+            this.setState({ trips: res.data });
+            this.upcomingTrips()
+        })
+        .catch(error => console.log(error))
     }
 
+    deleteTrip = (id) => {
+        axios.delete(`/api/upcomingtrips/${id}`)
+        .then(res => {
+            this.setState({ trips: res.data })
+            this.upcomingTrips()
+        })
+        .catch(error => console.log(error))
+    }
 
     render() {
         // console.log(this.state, 'hit')
@@ -69,11 +76,12 @@ class Profile extends Component {
                 </div>
                 
                 <h1 className='upcoming-title'>UPCOMING TRIPS</h1>
-                {/* <h2>Welcome back, {this.props.user && this.props.user.passenger_firstname}</h2> */}
-                <div className='ticket-box'>
-                  {this.state.upcomingTrips.map(booking => (
 
-             <TripDisplay booking={booking} />
+                {/* <h2>Welcome back, {this.props.user && this.props.user.passenger_firstname}</h2> */}
+
+                <div className='ticket-box'>
+                  {this.state.upcomingTrips.map((booking, i) => (
+             <TripDisplay key={i} booking={booking} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/>
 
                   ))} 
                 </div>
@@ -81,6 +89,7 @@ class Profile extends Component {
             </div>
         )
     }
+
     
 }
 

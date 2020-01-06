@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './tripconfirmation.css';
 import { connect } from "react-redux";
-import axios from 'axios';
+import helmet from '../../resources/Astronaut-Helmet-Line-Art.png';
 
 class TripConfirmation extends Component {
     constructor(props) {
@@ -10,25 +11,10 @@ class TripConfirmation extends Component {
         }
     }
 
-    editTrip = (id, trip) => {
-        axios.put(`/api/upcomingtrips?id=${id}`, trip)
-        .then(res => {
-            this.setState({ trips: res.data });
-        })
-        .catch(error => console.log(error))
-    }
-
-    deleteTrip = (id) => {
-        axios.delete(`api/upcomingtrips/${id}`)
-        .then(res => {
-            this.setState({ trips: res.data });
-        })
-        .catch(error => console.log(error))
-    }
-
     render(){
         return (
-            <div>
+            <div className='confirmation-box'>
+            <img id='helmet' src={helmet} alt='astronaut helmet'/>
             <h2 className='welcome-msg'>Welcome aboard, {this.props.user && this.props.user.passenger_firstname}
                 </h2>
             <p className='confirmation-info'>Welcome to your next adventure! Your trip with ASTRAEA is confirmed.

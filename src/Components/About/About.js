@@ -1,5 +1,7 @@
 import React from 'react';
-import wings from '../../resources/Wings.png'
+import './about.css';
+import wings from '../../resources/Wings.png';
+// import chara from '../../resources/chara.webp';
 
 const About = () => {
     return(

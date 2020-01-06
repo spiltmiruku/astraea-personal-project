@@ -1,0 +1,75 @@
+/* ----------AUTHMODAL COMPONENT---------- */
+
+.auth-title {
+    font-size: 70px;
+  }
+  
+  .auth-input {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #fff;
+    background-color: #0f1013;
+    border: 0;
+    border-bottom: 2px solid #2c2e30;
+    outline: none;
+    margin: 25px 10px;
+  }
+  
+  .auth-input:active {
+    background-color: #0f1013;
+  }
+  
+  .login {
+    margin-top: 200px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .border-on .login {
+    border: blue solid;
+  }
+  
+  .register {
+    margin-top: 200px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .border-on .register {
+    border: yellow solid;
+  }
+  
+  .auth-input-fields {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .border-on .auth-input-fields {
+    border: peachpuff solid;
+  }
+  
+  .account-text {
+    padding: 20px;
+  }
+  
+  .border-on .account-text {
+    border: mediumspringgreen solid;
+  }
+  

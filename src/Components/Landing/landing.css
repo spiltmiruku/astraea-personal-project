@@ -1,0 +1,88 @@
+/* ----------LANDING COMPONENT---------- */
+
+.destination-box {
+    margin-top: 60px;
+    height: fit-content;
+  }
+  
+  .border-on .destination-box {
+    border: blue solid;
+  }
+  
+  .numbering {
+    height: 30px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    color: #737373;
+  }
+  
+  .border-on .numbering {
+    border: hotpink solid;
+  }
+  
+  .title {
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .border-on .title {
+    border: yellow solid;
+  }
+  
+  #hero {
+    height: 400px;
+    width: auto;
+  }
+  
+  .border-on #hero {
+    border: pink solid;
+  }
+  
+  #hero:hover {
+    opacity: 0.3;
+  }
+  
+  .sub-heading {
+    padding: 30px 0px;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 9px;
+  }
+  
+  .border-on .sub-heading {
+    border: paleturquoise solid;
+  }
+  
+  
+  .positionBars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .border-on .positionBars {
+    border: cyan solid;
+  }
+  
+  .positionIndicator {
+    height: 3px;
+    width: 50px;
+    background-color: #737373;
+    margin: 50px 5px;
+  }
+  
+  .positionIndicator.active,
+  .positionIndicator:hover {
+    background-color: #fff;
+    cursor: pointer;
+  }

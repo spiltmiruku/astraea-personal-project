@@ -29,6 +29,8 @@ class Jupiter extends Component {
             <br />
             That craft is called Juno.
             <br />
+            Juno is Jupiter's wife in Roman mythology.
+            <br />
             NASA sent Jupiter's wife to check on Jupiter and his lovers and
             affairs.
           </p>

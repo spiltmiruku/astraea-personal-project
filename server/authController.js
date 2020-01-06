@@ -3,14 +3,11 @@ const bcrypt = require('bcryptjs');
 module.exports = {
 
     register: async(req, res) => {
-        console.log('begin register')
         const { username, email, password, passenger_firstname, passenger_lastname } = req.body;
         const { session } = req;
         const db = req.app.get('db');
-        console.log('got db')
 
         let user = await db.check_user(username);
-        console.log('got user')
         user = user[0];
         if(user){
             return res.status(400).send('Username already exists')
@@ -36,11 +33,9 @@ module.exports = {
         const { username, password } = req.body;
         const { session } = req;
         const db = req.app.get('db');
-        console.log('db')
 
         let user = await db.check_user(username)
         user = user[0];
-        console.log('user', user)
 
         if(!user){
             return res.status(401).send('Username not found')
@@ -50,11 +45,9 @@ module.exports = {
         if (!retrievedPassword){
             return res.status(401).send('Password not found')
         }
-        console.log('password', password, retrievedPassword)
 
         const authenticated = bcrypt.compareSync(password, retrievedPassword[0].password);
         if (authenticated){
-            console.log('auth')
 
             session.user = user;
             res.status(202).send(session.user);

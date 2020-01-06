@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import "./booking.css";
 import axios from "axios";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
 import earth from "../../resources/Earth.png";
+import select from "../../resources/select.png";
 
 class Booking extends Component {
   constructor(props) {
@@ -15,12 +18,13 @@ class Booking extends Component {
       destinationPlanet: "",
       destinationLocations: [],
       time: "",
-      departureDate: '',
-      returnDate: '',
-      dates: '',
+      departureDate: "",
+      returnDate: "",
+      dates: "",
       passenger_qty: 1,
       displayCalendar: "hide",
-      display: "bookTrip"
+      display: "bookTrip",
+      departureSearched: false
     };
     this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
@@ -36,11 +40,20 @@ class Booking extends Component {
   handleAirportSearch(location) {
     console.log("searching", location);
     axios.get("/api/airports?name=" + this.state[location]).then(res => {
-      console.log(res.data);
-      this.setState({
-        [`${location}LocationAirports`]: res.data,
-        [`${location}Airport`]: res.data[0].code
-      });
+      console.log(res);
+
+      if (res.data && res.data.length) {
+        this.setState({
+          [`${location}LocationAirports`]: res.data,
+          [`${location}Airport`]: res.data[0].code
+        });
+      } else {
+        this.setState({
+          [`${location}LocationAirports`]: [],
+          [`${location}Airport`]: "",
+          departureSearched: true
+        });
+      }
     });
   }
 
@@ -86,6 +99,10 @@ class Booking extends Component {
   };
 
   render() {
+    if (!this.props.user.username) {
+      // return <Redirect from='/booking' to='/profile/authenticate' />
+    }
+
     console.log(this.props);
 
     let departureLocationSelect = "";
@@ -105,6 +122,8 @@ class Booking extends Component {
           ))}
         </select>
       );
+    } else if (this.state.departure && this.state.departureSearched) {
+      departureLocationSelect = "No airports found, please modify your search";
     }
 
     // let destinationLocationSelect = '';
@@ -123,6 +142,7 @@ class Booking extends Component {
     //         </select>
     //     )
     // }
+
     console.log(this.state);
     console.log(this.state.dates);
     return (
@@ -140,16 +160,20 @@ class Booking extends Component {
                 name="departure"
                 placeholder="Departure"
               />
-              <button
-                className="searchAirports"
+
+
+            <div className="btn-container">
+              <div
+                className="discover-btn effect01"
                 onClick={() => this.handleAirportSearch("departure")}
                 name="departureSearch"
               >
                 Search Airports
-              </button>
+              </div>
               <div className="departureAirportSelect">
                 {departureLocationSelect}
               </div>
+            </div>
             </div>
 
             {/* <label>Destination</label>
@@ -169,10 +193,10 @@ class Booking extends Component {
                 name="destinationPlanet"
               >
                 <option value="Moon">Moon</option>
-                <option value="Mars">Mars</option>
-                <option value="Jupiter">Jupiter</option>
                 <option value="Mercury">Mercury</option>
                 <option value="Venus">Venus</option>
+                <option value="Mars">Mars</option>
+                <option value="Jupiter">Jupiter</option>
               </select>
             </div>
 
@@ -183,9 +207,11 @@ class Booking extends Component {
                   onClick={e => this.toggleCalendar("display")}
                   className="trip-dates"
                 >
+                  <p>Select travel dates</p>
+                  <img id="select" src={select} alt="select arrow" />
                   {this.state.dates &&
                     Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
-                  <p>-</p>
+                      {this.state.dates && <p>-----</p>}
                   {this.state.dates &&
                     Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
                 </div>
@@ -197,14 +223,7 @@ class Booking extends Component {
                   >
                     Confirm Dates
                   </button>
-                  <div className='date-display'>
-                    {this.state.dates &&
-                      Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
-                  </div>
-                  <div>
-                    {this.state.dates &&
-                      Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
-                  </div>
+
                   <DateRange
                     onInit={this.handleSelect}
                     onChange={this.handleSelect}
@@ -234,11 +253,13 @@ class Booking extends Component {
               />
             </div>
 
-            <div
-              onClick={e => this.handleToggle("confirmation")}
-              className="nextbtn"
-            >
-              NEXT
+            <div className="btn-container">
+              <div
+                onClick={e => this.handleToggle("confirmation")}
+                className="discover-btn effect01"
+              >
+                NEXT
+              </div>
             </div>
           </section>
         ) : (
@@ -258,10 +279,24 @@ class Booking extends Component {
               {this.state.dates &&
                 Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
             </h1>
+           
+              <div className="btn-container">
+                <div
+                  onClick={e => this.handleToggle("bookTrip")}
+                  className="discover-btn effect01"
+                >
+                  BACK
+                </div>
+              </div>
 
-            <button className="book-trip" onClick={() => this.bookTrip()}>
-              BOOK TRIP
-            </button>
+              <div className="btn-container">
+                <div
+                  className="discover-btn effect01"
+                  onClick={() => this.bookTrip()}
+                >
+                  BOOK TRIP
+                </div>
+              </div>
           </div>
         )}
       </div>

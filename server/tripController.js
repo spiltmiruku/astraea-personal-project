@@ -1,6 +1,5 @@
 module.exports = {
     bookTrip: (req, res) => {
-        console.log(req.body)
         const { departure_airport,
                 destination_planet,
                 flight_time,
@@ -21,7 +20,6 @@ module.exports = {
         .catch(err => console.log(err))
     },
     getTrips: (req, res) => {
-        console.log(req.params)
         const {user_id} = req.params;
         const db = req.app.get('db');
         db.get_trips(user_id).then( trip => {
@@ -32,7 +30,7 @@ module.exports = {
 
 
     editTrip: (req, res) => {
-        const {id} = req.params;
+        const {id} = req.query;
         let { departure_airport,
             destination_planet,
             flight_time,
@@ -42,6 +40,7 @@ module.exports = {
             user_id } = req.body;
         
         const db = req.app.get('db');
+     
         db.edit_trip({
             id, 
             departure_airport,
@@ -56,29 +55,11 @@ module.exports = {
     },
 
     deleteTrip: (req, res) => {
-        let index = null
-        trips.forEach((trip, i) => {
-            if(trip.id === +req.params.id) index = i
-        })
-        trips.splice(index, 1)
-        res.status(200).send(trips)
-    }
-};
+       let { id } = req.params;
+       const db = req.app.get('db');
+       db.delete_trip({
+           id
+       }).then( trip => { res.status(200).send({Message: 'Your trip has been removed'})
+})}
 
-
-
-    // editTrip: (req, res) => {
-    //     let index = null
-    //     this.getTrips.forEach((trip, i) => {
-    //         if(trip.id === +req.query.id) index = i
-    //     })
-    //    let { departure_airport, destination_planet, flight_time, flight_date } = req.body;
-    //     trips[index] = {
-    //         id: trips[index].id,
-    //         departure_airport: departure_airport || trips[index].departure_airport,
-    //         destination_planet: destination_planet || trips[index].destination_planet,
-    //         flight_time: flight_time || trips[index].flight_time,
-    //         flight_date: flight_date || trips[index].flight_date,
-    //     }
-    //     res.status(200).send(trips)
-    // },
+}

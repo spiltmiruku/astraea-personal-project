@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './authmodal.css';
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateUser } from "../../redux/reducer";
@@ -84,7 +85,6 @@ class AuthModal extends Component {
       });
   }
 
- 
 
   render() {
     console.log(this.props)
@@ -130,8 +130,8 @@ class AuthModal extends Component {
             />
           </div>
 
-            <div className="box-button-container" type="submit" onClick={this.login}>
-              <button className='auth-btn'>LOG IN</button>
+            <div className="btn-container" onClick={this.login}>
+              <div className='discover-btn effect01'>LOG IN</div>
             </div>
             </div>
             <div className="btn-container">
@@ -199,8 +199,8 @@ class AuthModal extends Component {
             />
           </div>
 
-            <div className="box-button-container" type="submit" onClick={this.register}>
-              <button className='auth-btn'>REGISTER</button>
+            <div className="btn-container" type="submit" onClick={this.register}>
+              <div className='discover-btn effect01'>REGISTER</div>
             </div>
             </div>
             <div className="btn-container">

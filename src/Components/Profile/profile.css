@@ -1,0 +1,73 @@
+/* ----------PROFILE COMPONENT---------- */
+
+.upcoming-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    letter-spacing: 8px;
+    margin-top: 100px;
+  }
+  
+  .border-on .upcoming-title {
+    border: mediumvioletred solid;
+  }
+  
+  .ticket-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .generated-ticket {
+    border: white solid;
+    font-family: "Montserrat", sans-serif;
+    padding: 30px;
+    margin-top: 100px;
+    height: 180px;
+    width: 600px;
+  }
+  
+  .ticket-airport,
+  .ticket-planet,
+  .ticket-time,
+  .ticket-date,
+  .ticket-qty {
+    padding: 20px;
+  }
+  
+  .border-on
+  .ticket-airport,
+  .border-on
+  .ticket-planet,
+  .border-on
+  .ticket-time,
+  .border-on
+  .ticket-date,
+  .border-on
+  .ticket-qty {
+    border: greenyellow solid;
+  }
+  
+  .ticket-airport,
+  .ticket-planet {
+    font-size: 30px;
+  }
+  
+  .from-to {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: stretch;
+  }
+  
+  .dashes {
+    font-size: 50px;
+  }
+  
+  #rocket-icon {
+    height: 30px;
+  }
+  

@@ -1,0 +1,43 @@
+
+/* ----------TRIPCONFIRMATION COMPONENT---------- */
+
+.confirmation-box {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .border-on .confirmation-box {
+    border: yellow solid;
+  }
+  
+  .welcome-msg {
+    font-size: 40px;
+    margin-top: 70px;
+    letter-spacing: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+  }
+  
+  .border-on .welcome-msg {
+    border: aquamarine solid;
+  }
+  
+  .confirmation-info {
+    width: 500px;
+    line-height: 40px;
+    margin-top: 50px;
+    font-family: "Roboto Slab", serif;
+    letter-spacing: 2px;
+    color: #9e9e9e;
+  }
+  
+  .border-on .confirmation-info {
+    border: crimson solid;
+  }
+  
+  #helmet {
+    height: 300px;
+  }

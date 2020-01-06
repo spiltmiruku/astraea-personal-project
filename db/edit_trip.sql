@@ -6,5 +6,5 @@ SET
     departure_date = ${departure_date},
     return_date = ${return_date},
     passenger_qty = ${passenger_qty}
-WHERE id = ${id}
+WHERE id = ${id};
 SELECT * FROM astraea_bookings WHERE user_id = ${user_id};

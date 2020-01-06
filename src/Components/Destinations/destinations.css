@@ -1,0 +1,64 @@
+/* ----------DESTINATIONS COMPONENTS---------- */
+
+.wrap-all-planets {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+  }
+  
+  .planet-name {
+    font-size: 60px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 8px;
+    line-height: 62px;
+    margin: 20px;
+  }
+  
+  .border-on .planet-name {
+    border: plum solid;
+  }
+  
+  .planet-subtitle {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    margin: 20px;
+  }
+  
+  .border-on .planet-subtitle {
+    border: lemonchiffon solid;
+  }
+  
+  .desc {
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    color: #737373;
+    letter-spacing: 1px;
+    line-height: 30px;
+    padding: 20px;
+    height: 255px;
+    width: 600px;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .border-on .desc {
+    border: springgreen solid;
+  }
+  
+  .trivia {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    margin: 20px;
+  }
+  
+  .border-on .trivia {
+    border: tomato solid;
+  }

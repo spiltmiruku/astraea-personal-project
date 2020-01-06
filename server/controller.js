@@ -17,6 +17,9 @@ module.exports = {
         // console.log(res2.data)
         res.status(200).send(res2.data);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error)
+        res.status(500).send(error);
+      });
   }
 };

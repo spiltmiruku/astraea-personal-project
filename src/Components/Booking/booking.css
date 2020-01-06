@@ -1,0 +1,123 @@
+/* ----------BOOKING COMPONENT---------- */
+
+.booking-title {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
+
+.border-on .booking-title {
+  border: palegreen solid;
+}
+
+.booking-inputs {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.border-on .booking-inputs {
+  border: slateblue solid;
+}
+
+.departureSearchBox {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-on .departureSearchBox {
+  border: aquamarine solid;
+}
+
+.departureAirportSelect {
+  margin-top: 20px;
+}
+
+.destination-dropdown {
+  height: 150px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border-on .destination-dropdown {
+  border: orange solid;
+}
+
+.trip-dates-wrapper {
+  height: 150px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border-on .trip-dates-wrapper {
+  border: mediumslateblue solid;
+}
+
+.border-on .date-display {
+  border: plum solid;
+}
+
+.flight-times {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border-on .flight-times {
+  border: yellow solid;
+}
+
+.passenger-number {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border-on .passenger-number {
+  border: tomato solid;
+}
+
+#select {
+  height: 16px;
+}
+
+.bookbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#rightselect {
+  height: 50px;
+}
+
+input {
+  margin: 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  background-color: #0f1013;
+  border: 0;
+  border-bottom: 2px solid #2c2e30;
+  outline: none;
+}

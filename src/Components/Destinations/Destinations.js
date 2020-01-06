@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './destinations.css';
 import Moon from './Moon';
 import Mars from './Mars';
 import Jupiter from './Jupiter';
