@@ -28,7 +28,6 @@ class Profile extends Component {
 
     upcomingTrips = (user) => {
 
-        console.log(this.state)
         if (this.props.reducer.user.user_id) {
             axios
                 .get(`/api/upcomingtrips/${this.props.reducer.user.user_id}`).then(bookedTrips => {
@@ -69,17 +68,16 @@ class Profile extends Component {
     }
 
     render() {
-        // console.log(this.state, 'hit')
         return (
             <div>
 
             <div className='btn-container'>
-                <Link className='discover-btn effect01' onClick={this.logout} to='/'><span>LOGOUT</span></Link>
+                <Link className='discover-btn effect01 logout' onClick={this.logout} to='/'><span>LOGOUT</span></Link>
                 </div>
                 
                 <h1 className='upcoming-title'>UPCOMING TRIPS</h1>
 
-                {/* <h2>Welcome back, {this.props.reducer.user && this.props.reducer.user.passenger_firstname}</h2> */}
+                <h2 className='greeting'>Welcome back, {this.props.reducer.user && this.props.reducer.user.passenger_firstname}</h2>
 
                 <div className='ticket-box'>
                   {this.props.tripReducer.bookedTrips.map((booking, i) => (

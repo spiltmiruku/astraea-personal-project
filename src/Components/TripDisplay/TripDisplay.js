@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './tripdisplay.css';
 import rocket from "../../resources/Rocket.png";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
@@ -19,7 +20,7 @@ class TripDisplay extends Component {
   }
 
   handleSelect = range => {
-    console.log(range);
+    // console.log(range);
     this.setState({
       departure_date: range.startDate,
       return_date: range.endDate
@@ -27,7 +28,7 @@ class TripDisplay extends Component {
   };
 
   toggleCalendar = hide => {
-    console.log(hide);
+    // console.log(hide);
     this.setState({
       displayCalendar: hide
     });
@@ -65,7 +66,7 @@ class TripDisplay extends Component {
       passenger_qty
     } = this.props.booking;
 
-    console.log("booking", this.props.booking);
+    // console.log("booking", this.props.booking);
     return (
       <div>
         {!this.state.isEditing ? (
@@ -87,6 +88,7 @@ class TripDisplay extends Component {
               <span className="ticket-date">
                 {return_date && Moment(return_date).format("MMM Do YYYY")}
               </span>
+              
               <label>
                 Passengers:
                 <span className="ticket-qty">{passenger_qty}</span>

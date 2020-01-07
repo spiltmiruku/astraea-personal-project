@@ -87,7 +87,6 @@ class AuthModal extends Component {
 
 
   render() {
-    console.log(this.props)
     const {
       username,
       password,

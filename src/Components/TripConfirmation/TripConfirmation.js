@@ -12,10 +12,11 @@ class TripConfirmation extends Component {
     }
 
     render(){
+        console.log(this.props)
         return (
             <div className='confirmation-box'>
             <img id='helmet' src={helmet} alt='astronaut helmet'/>
-            <h2 className='welcome-msg'>Welcome aboard, {this.props.reducer.user && this.props.reducer.user.passenger_firstname}
+            <h2 className='welcome-msg'>Welcome aboard, {this.props.user && this.props.user.passenger_firstname}
                 </h2>
             <p className='confirmation-info'>Welcome to your next adventure! Your trip with ASTRAEA is confirmed.
                 <br/>
@@ -30,4 +31,8 @@ class TripConfirmation extends Component {
     }
 }
 
-export default connect(state => ({user: state.user})) (TripConfirmation);
+const mapStateToProps = (rootReducer) => {
+    return {user: rootReducer.reducer.user}
+}
+
+export default connect(mapStateToProps) (TripConfirmation);

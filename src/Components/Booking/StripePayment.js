@@ -1,39 +1,42 @@
 import React, { Component } from "react";
-// import { CardElement } from "react-stripe-elements";
-import StripeCheckout from 'react-stripe-checkout';
+
+import StripeCheckout from "react-stripe-checkout";
+import './stripepayment.css';
 import axios from "axios";
 
 class StripePayment extends Component {
   constructor() {
     super();
     this.state = {
-    //   amount: ,
-    
     };
   }
 
   onOpened = () => {
-    console.log("open");
+    // console.log("open");
   };
 
   onClosed = () => {
-    console.log("closed");
+    // console.log("closed");
   };
 
   onToken = token => {
     console.log(token);
-    let { amount } = this.state;
+    let { amount } = this.props;
     amount /= 100;
-    console.log(amount);
+    console.log(this.props.amount);
     token.card = void 0;
+    // console.log(amount);
     axios
-      .post("/api/payment", { token, amount: this.state.amount })
+    .post("/api/payment", { token, amount: this.props.amount })
       .then(res => {
         console.log(res);
         alert(`Payment of ${amount} has been submitted`);
+        this.props.bookTrip();
       });
   };
   render() {
+      console.log(this.props)
+      console.log(this.props.amount * this.props.passenger_qty)
     return (
       <div
         style={{
@@ -45,15 +48,19 @@ class StripePayment extends Component {
       >
         <StripeCheckout
           name="Book Flight" //header
-        //   image={}
-          description="Thank you for choosing ASTRAEA" //subtitle - beneath header
+          style={{
+            
+          }}
+          //   image={}
+          description={"Thank you for choosing ASTRAEA"} //subtitle - beneath header
           stripeKey={process.env.REACT_APP_STRIPE_KEY} //public key not secret key
           token={this.onToken} //fires the call back
-          amount={this.state.amount} //this will be in cents
+    
+          amount={this.props.amount * +this.props.passenger_qty} //this will be in cents
           currency="USD"
           // image={imageUrl} // the pop-in header image (default none)
           // ComponentClass="div" //initial default button styling on block scope (defaults to span)
-          panelLabel="Submit Payment" //text on the submit button
+          panelLabel="Confirm Payment" //text on the submit button
           locale="en" //locale or language (e.g. en=english, fr=french, zh=chinese)
           opened={this.onOpened} //fires cb when stripe is opened
           closed={this.onClosed} //fires cb when stripe is closed
@@ -61,48 +68,19 @@ class StripePayment extends Component {
           billingAddress={false}
           // shippingAddress //you can collect their address
           zipCode={true}
+          onClick={() => this.props.bookTrip()}
         >
-          {/* <button>Checkout</button> */}
+          <div className="btn-container">
+            <div
+              className="discover-btn effect01"
+            >
+              BOOK TRIP
+            </div>
+          </div>
         </StripeCheckout>
-        <input
-          value={this.state.amount}
-          type="number"
-          onChange={e => this.setState({ amount: +e.target.value })}
-        />
       </div>
     );
   }
 }
 
-
 export default StripePayment;
-
-
-
-
-// const style = {
-//   base: {
-//     color: "#32325d",
-//     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-//     fontSmoothing: "antialiased",
-//     fontSize: "16px",
-//     "::placeholder": {
-//       color: "#aab7c4"
-//     }
-//   },
-//   invalid: {
-//     color: "#fa755a",
-//     iconColor: "#fa755a"
-//   }
-// };
-
-// const CardSection = () => {
-//   return (
-//     <label>
-//       Card details
-//       <CardElement className='MyCardElement' style={style} />
-//     </label>
-//   );
-// };
-
-// export default CardSection;

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./booking.css";
 import axios from "axios";
 import { connect } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
+import Stripe from '../Booking/StripePayment';
 import earth from "../../resources/Earth.png";
 import select from "../../resources/select.png";
 
@@ -25,7 +26,7 @@ class Booking extends Component {
       displayCalendar: "hide",
       display: "bookTrip",
       departureSearched: false,
-      stripeEdit: false
+      amount: 10000
     };
     this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
@@ -41,7 +42,7 @@ class Booking extends Component {
   handleAirportSearch(location) {
     console.log("searching", location);
     axios.get("/api/airports?name=" + this.state[location]).then(res => {
-      console.log(res);
+      // console.log(res);
 
       if (res.data && res.data.length) {
         this.setState({
@@ -58,7 +59,10 @@ class Booking extends Component {
     });
   }
 
+  
+
   bookTrip = () => {
+    console.log('booking')
     if (this.props.reducer.user.user_id) {
       axios
         .post("/api/booktrip", {
@@ -80,14 +84,12 @@ class Booking extends Component {
   };
 
   handleSelect(range) {
-    console.log(range);
     this.setState({
       dates: range
     });
   }
 
   toggleCalendar = hide => {
-    console.log(hide);
     this.setState({
       displayCalendar: hide
     });
@@ -99,22 +101,14 @@ class Booking extends Component {
     });
   };
 
-  handleToggle = nextDisplay => {
-    this.setState({
-      display: nextDisplay
-    });
-  };
-
   render() {
     if (!this.props.reducer.user.username) {
-      // return <Redirect from='/booking' to='/profile/authenticate' />
+      return <Redirect from='/booking' to='/profile/authenticate' />
     }
 
-    console.log(this.props);
-
     let departureLocationSelect = "";
-    console.log(this.state.displayCalendar);
-    console.log(this.state.departureLocationAirports);
+    // console.log(this.state.displayCalendar);
+    // console.log(this.state.departureLocationAirports);
     if (this.state.departureLocationAirports.length) {
       departureLocationSelect = (
         <select
@@ -150,8 +144,7 @@ class Booking extends Component {
     //     )
     // }
 
-    console.log(this.state);
-    console.log(this.state.dates);
+  
     return (
       <div>
         <img id="hero" src={earth} alt="earth" />
@@ -214,7 +207,7 @@ class Booking extends Component {
                   onClick={e => this.toggleCalendar("display")}
                   className="trip-dates"
                 >
-                  <p>Select travel dates</p>
+                  <p className='select-dates'>(Select Departure & Return dates)</p>
                   <img id="select" src={select} alt="select arrow" />
                   {this.state.dates &&
                     Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
@@ -271,14 +264,22 @@ class Booking extends Component {
           </section>
         ) : (
           <div>
-            <h1>{this.state.departureAirport}</h1>
+            <section className='confirmation-box'>
 
-            <h1>{this.state.destinationPlanet}</h1>
+            <label>Departure Airport</label>
+            <h1 className='confirmation-info'>{this.state.departureAirport}</h1>
 
-            <h1>{this.state.time}</h1>
+            <label>Destination</label>
+            <h1 className='confirmation-info'>{this.state.destinationPlanet}</h1>
 
-            <h1>{this.state.passenger_qty}</h1>
 
+            <label>Departure Time</label>
+            <h1 className='confirmation-info'>{this.state.time}</h1>
+
+            <label>Number of Passengers</label>
+            <h1 className='confirmation-info'>{this.state.passenger_qty}</h1>
+
+            <label>Travel Dates</label>
             <h1>
               {this.state.dates &&
                 Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
@@ -286,6 +287,7 @@ class Booking extends Component {
               {this.state.dates &&
                 Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
             </h1>
+            </section>
            
               <div className="btn-container">
                 <div
@@ -296,20 +298,17 @@ class Booking extends Component {
                 </div>
               </div>
 
-              <div className="btn-container">
-                <div
-                  className="discover-btn effect01"
-                  onClick={() => this.bookTrip()}
-                >
-                  BOOK TRIP
-                </div>
-              </div>
+                <Stripe bookTrip={this.bookTrip}  passenger_qty={this.state.passenger_qty} amount={this.state.amount}/>
+
+          
           </div>
         )}
+
       </div>
     );
   }
 }
+
 
 const mapStateToProps = reduxState => {
   return reduxState;
