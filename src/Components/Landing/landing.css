@@ -63,11 +63,25 @@
      user-select: none;
   }
   
-  .planet-title b{
+  .moon b{
     font: 700 19vh "Montserrat";
     color: #fff;
-    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #BCFFCB, 0 0 0.5em #BCFFCB, 0 0 0.1em #BCFFCB, 0 10px 3px #0f1013;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #D9FFF2, 0 0 0.5em #D9FFF2, 0 0 0.1em #D9FFF2, 0 10px 3px #0f1013;
   }
+
+  .mars b{
+    font: 700 19vh "Montserrat";
+    color: #fff;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #FF4900, 0 0 0.5em #FF4900, 0 0 0.1em #FF4900, 0 10px 3px #0f1013;
+  }
+
+  .jupiter b{
+    font: 700 19vh "Montserrat";
+    color: #fff;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #FFBD00, 0 0 0.5em #FFBD00, 0 0 0.1em #FFBD00, 0 10px 3px #0f1013;
+  }
+
+
   .planet-title b span{
     animation: blink linear infinite 2s;
   }

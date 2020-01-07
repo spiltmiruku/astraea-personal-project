@@ -4,16 +4,14 @@ import { connect } from "react-redux";
 import logo from "../../resources/astraea_logo.svg";
 import icon from "../../resources/profile_icon.png";
 import { Link } from "react-router-dom";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-library.add(faBars);
+import Hamburger from '../Hamburger/Hamburger';
 
 class Header extends Component {
   constructor() {
     super();
     this.state = {
-      toggleMenu: false
+      toggleMenu: false,
+      hamburgerState: 'menu',
     };
   }
 
@@ -23,10 +21,17 @@ class Header extends Component {
     });
   };
 
+  handleLinkClick = () => {
+    this.setState({
+      toggleMenu: false, 
+      hamburgerState: 'menu',
+    });
+  };
+
   render() {
     return (
-      <div className="App">
-        <Link to="/">
+      <header>
+        <Link to="/" className="logo-link">
           <img src={logo} alt="logo" className="logo" />
         </Link>
         <div className="header">
@@ -40,11 +45,7 @@ class Header extends Component {
                   : "ACCOUNT"}
               </p>
             </Link>
-            <FontAwesomeIcon
-              icon="bars"
-              id="hamburger"
-              onClick={this.handleToggle}
-            />
+            <Hamburger onClick={this.handleToggle} state={this.state.hamburgerState} setState={(v)=> this.setState({hamburgerState: v})}/>
           </div>
          
         </div>
@@ -54,22 +55,28 @@ class Header extends Component {
         ) : (
           <>
             <nav id="nav-menu">
-              <Link className="links" to="/">
-                Main
-              </Link>
-              <Link className="links" to="/about">
-                About
-              </Link>
-              <Link className="links" to="/booking">
-                Booking
-              </Link>
-              <Link className="links" to="/destinations">
-                Destinations
-              </Link>
+              <div className="row">
+                <div className="col-6">
+                  <Link className="links" to="/" onClick={this.handleLinkClick}>
+                    Main
+                  </Link>
+                  <Link className="links" to="/about" onClick={this.handleLinkClick}>
+                    About
+                  </Link>
+                </div>
+                <div className="col-6">
+                  <Link className="links" to="/booking" onClick={this.handleLinkClick}>
+                    Booking
+                  </Link>
+                  <Link className="links" to="/destinations" onClick={this.handleLinkClick}>
+                    Destinations
+                  </Link>
+                </div>
+              </div>
             </nav>
           </>
         )}
-      </div>
+      </header>
     );
   }
 }

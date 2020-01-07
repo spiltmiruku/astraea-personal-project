@@ -25,7 +25,7 @@ class Landing extends Component {
       <div>
         {this.state.display === "moon" ? (
           <section className="destination-box">
-          <div className="planet-title"><b>M<span>O</span>O<span>N</span></b></div>
+          <div className="planet-title moon"><b>M<span>O</span>O<span>N</span></b></div>
             <p className="numbering"> 001 </p>
             {/* <h1 className="title"> MOON </h1> */}
             <img id="hero" src={moon} alt="moon" />
@@ -42,7 +42,7 @@ class Landing extends Component {
 
         {this.state.display === "mars" ? (
           <section className="destination-box">
-        <div className="planet-title"><b><span>MA</span>R<span>S</span></b></div>
+        <div className="planet-title mars"><b><span>MA</span>R<span>S</span></b></div>
             <p className="numbering"> 002 </p>
             {/* <h1 className="title"> MARS </h1> */}
             <img id="hero" src={mars} alt="mars" />
@@ -59,7 +59,7 @@ class Landing extends Component {
 
         {this.state.display === "jupiter" ? (
           <section className="destination-box">
-        <div className="planet-title"><b>J<span>UP</span>I<span>TER</span></b></div>
+        <div className="planet-title jupiter"><b>J<span>UP</span>I<span>TER</span></b></div>
 
             <p className="numbering"> 003 </p>
             {/* <h1 className="title"> JUPITER </h1> */}

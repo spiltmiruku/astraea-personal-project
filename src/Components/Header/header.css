@@ -6,29 +6,28 @@
     justify-content: flex-end;
     align-items: flex-start;
   }
-  
-  .logo {
-    height: 25px;
-    padding-left: 3%;
-    padding-top: 2%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  .logo-link {
+    height: 30px;
+    margin: 30px;
     position: fixed;
+    left: 0;
     top: 0;
   }
-  .border-on .logo {
+  .logo {
+    height: 100%;
+  }
+  .border-on .logo-link {
     border: cyan solid;
   }
   
   .account-box {
     align-items: center;
     height: fit-content;
-    width: 150px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-right: 16px;
     text-decoration: none;
-    top: 10;
+    display: flex;
+    position: relative;
   }
   
   .border-on .account-box {
@@ -40,6 +39,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     align-content: center;
   }
   
@@ -54,23 +54,16 @@
     color: #fff;
   }
   
-  #hamburger {
+  #nav-menu,
+  #mobile-nav-menu {
     padding: 20px;
     position: fixed;
-  }
-  
-  .border-on #hamburger {
-    border: springgreen solid;
-  }
-  
-  #hamburger:hover {
-    cursor: pointer;
-  }
-  
-  #nav-menu {
-    height: 50px;
-    padding: 20px;
-    margin-top: 10px;
+    background: rgba(0,0,0,0.85);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3
   }
   
   .border-on #nav-menu {
@@ -78,20 +71,38 @@
   }
   
   .links {
-    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(50vh - 30px);
+    text-align: center;
     font-family: "Open Sans Condensed", sans-serif;
     font-size: 28px;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
+    position: relative;
   }
-  
+  .links::after {
+    content: '';
+    transition: 0.5s;
+    border-bottom: 2px solid transparent;
+    width: 40px;
+    position: absolute;
+    height: 40px;
+  }
+  .links:hover::after {
+    content: '';
+    display: block;
+    border-color: white;
+  }
   .border-on .links {
     border: violet solid;
   }
   
   .links:hover {
-    border-bottom: 5px #fff solid;
+    color: #fff;
+    text-decoration: none;
   }
 
   a {

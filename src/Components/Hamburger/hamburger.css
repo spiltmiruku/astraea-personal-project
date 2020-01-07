@@ -1,0 +1,26 @@
+
+#hamburger-container {
+    width: 70px;
+    z-index: 5;
+  }
+  
+  
+  #hamburger .box {
+    width: 33.3333%;
+    height: 50%;
+    float: left;
+  }
+  
+  #hamburger .icon {
+    position: relative;
+    top: 50%;
+    width: 100%; 
+    height: 100%;
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    cursor: pointer;
+  }
+  
+  #hamburger.icon { stroke: #000; opacity: .95; }
+  
