@@ -24,7 +24,8 @@ class Booking extends Component {
       passenger_qty: 1,
       displayCalendar: "hide",
       display: "bookTrip",
-      departureSearched: false
+      departureSearched: false,
+      stripeEdit: false
     };
     this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
@@ -89,6 +90,12 @@ class Booking extends Component {
     console.log(hide);
     this.setState({
       displayCalendar: hide
+    });
+  };
+
+  handleToggle = nextDisplay => {
+    this.setState({
+      display: nextDisplay
     });
   };
 

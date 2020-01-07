@@ -5,10 +5,11 @@ const express = require('express'),
       ctrl = require('./controller'),
       authCtrl = require('./authController'),
       tripCtrl = require('./tripController'),
+      payCtrl = require('./paymentController'),
       gradient = require('gradient-string'),
-      { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
+      { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, STRIPE_SECRET } = process.env,
       app = express();
-    //   stripe = require('stripe')('sk_test_40DTj8R96Ni1aW6z7qJlJWLs00OPzKKChU');
+      stripe = require('stripe') (process.env.STRIPE_SECRET);
 
 
 app.use(express.json());
@@ -26,13 +27,6 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 
-// (async () => {
-//     const paymentIntent = await stripe.paymentIntents.create({
-//         amount: 99999,
-//         currency: 'usd'
-//     });
-// })();
-
 // Authentication Endpoints
 
 app.post('/api/auth/register', authCtrl.register);
@@ -46,6 +40,8 @@ app.post('/api/booktrip', tripCtrl.bookTrip);
 app.get('/api/upcomingtrips/:user_id', tripCtrl.getTrips);
 app.put('/api/upcomingtrips', tripCtrl.editTrip);
 app.delete('/api/upcomingtrips/:id', tripCtrl.deleteTrip);
+
+app.post('/api/payment', payCtrl.pay);
 
 
 const port = SERVER_PORT;

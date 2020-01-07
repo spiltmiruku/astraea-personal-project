@@ -10,6 +10,7 @@ import Mars from "./Components/Destinations/Mars";
 import Jupiter from "./Components/Destinations/Jupiter";
 import TripConfirmation from "./Components/TripConfirmation/TripConfirmation";
 import Profile from "./Components/Profile/Profile";
+import StripePayment from './Components/Booking/StripePayment';
 
 export default (
   <Switch>
@@ -23,5 +24,6 @@ export default (
     <Route path="/jupiter" component={Jupiter} />
     <Route path="/tripconfirmation" component={TripConfirmation} />
     <Route path="/profile" component={Profile} />
+    <Route path='/payment' component={StripePayment} />
   </Switch>
 );
