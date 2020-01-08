@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Jupiter extends Component {
   constructor() {
@@ -7,12 +8,11 @@ class Jupiter extends Component {
   }
   render() {
     return (
-      <div className='wrap-all-planets'>
-
+      <div className="wrap-all-planets">
         <section className="planet">
           <h1 className="planet-name"> JUPITER </h1>
           <h2 className="planet-subtitle">BEHOLD THE GIANT</h2>
-          <p className='desc'>
+          <p className="desc">
             Jupiter is the fifth planet from our Sun and is, by far, the largest
             planet in the solar system – more than twice as massive as all the
             other planets combined. Jupiter's stripes and swirls are actually
@@ -21,8 +21,8 @@ class Jupiter extends Component {
             storm bigger than Earth that has raged for hundreds of years.
           </p>
 
-          <h3 className='trivia'>Trivia</h3>
-          <p className='desc'>
+          <h3 className="trivia">Trivia</h3>
+          <p className="desc">
             Jupiter's moons are named after his lovers and affairs.
             <br />
             In 2011, NASA sent a craft to check out Jupiter.
@@ -36,6 +36,28 @@ class Jupiter extends Component {
           </p>
         </section>
 
+        <section className="planetBars">
+          <Link to="/moon">
+            <div className="selectPlanet">
+            </div>
+          </Link>
+
+          <Link to="/mars">
+            <div className="selectPlanet"></div>
+          </Link>
+
+          <Link to="/jupiter">
+            <div className="selectPlanet"></div>
+          </Link>
+
+          <Link to="/mercury">
+            <div className="selectPlanet"></div>
+          </Link>
+
+          <Link to="/venus">
+            <div className="selectPlanet"></div>
+          </Link>
+        </section>
       </div>
     );
   }

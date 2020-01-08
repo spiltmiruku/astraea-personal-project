@@ -84,7 +84,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  padding-top: 10px;
+  padding: 15px 0px;
 }
 
 
@@ -95,7 +95,9 @@
 .rdr-DateRange {
   position: relative;
   z-index: 7;
-  width: max-content;
+  height: max-content;
+  width: 75vw;
+  margin-bottom: 50px;
 }
 
 .flight-times {
@@ -154,17 +156,22 @@ input {
 }
 
 .confirmation-box {
-  border: teal solid;
   width: 500px;
   display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: center;
-	align-content: center;
+  align-content: center;
+  line-height: 48px;
+  padding: 20px;
+}
+
+.border-on .confirmation-box {
+  border: teal solid;
 }
 
 .confirmation-box p{
-  margin: 0;
+  margin: 50;
 }
 
 
@@ -186,5 +193,12 @@ input {
   }
   .passenger-number {
     height: 150px;
+  }
+
+  .rdr-DateRange {
+    position: relative;
+    z-index: 7;
+    width: max-content;
+    margin-bottom: 50px;
   }
 }

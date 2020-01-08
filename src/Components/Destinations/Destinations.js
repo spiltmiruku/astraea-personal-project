@@ -15,10 +15,10 @@ class Destinations extends Component {
     return (
       <div>
         <Moon />
-        <Jupiter />
         <Mars />
-        <Venus />
+        <Jupiter />
         <Mercury />
+        <Venus />
       </div>
     );
   }

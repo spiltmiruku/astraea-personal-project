@@ -15,7 +15,7 @@
     font-weight: 700;
     letter-spacing: 8px;
     line-height: 62px;
-    margin: 120px;
+    margin: 100px;
   }
   
   .border-on .planet-name {
@@ -32,9 +32,17 @@
     border: lemonchiffon solid;
   }
   
+.planet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
   .desc {
     font-family: "Roboto Slab", serif;
     font-weight: 300;
+    text-align: left;
     color: #737373;
     letter-spacing: 1px;
     line-height: 30px;
@@ -57,8 +65,37 @@
     font-family: "Playfair Display", serif;
     font-style: italic;
     margin: 20px;
+    align-content: center;
   }
   
   .border-on .trivia {
     border: tomato solid;
+  }
+
+
+  .planetBars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .border-on .planetBars {
+    border: cyan solid;
+  }
+
+  .selectPlanet {
+    height: 3px;
+    width: 50px;
+    background-color: #737373;
+    margin: 20px 5px;
+  }
+  
+  .selectPlanet.active,
+  .selectPlanet:hover {
+    background-color: #fff;
+    cursor: pointer;
   }

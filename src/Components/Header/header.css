@@ -8,7 +8,9 @@
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 20;
   }
+
   .logo-link {
     height: 30px;
     margin: 30px;
