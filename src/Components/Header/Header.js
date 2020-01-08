@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import './header.css';
 import { connect } from "react-redux";
-import logo from "../../resources/astraea_logo.svg";
-import icon from "../../resources/profile_icon.png";
 import { Link } from "react-router-dom";
 import Hamburger from '../Hamburger/Hamburger';
+const logo = 'https://astraea-project.s3-us-west-2.amazonaws.com/astraea_logo.svg';
+const icon = 'https://astraea-project.s3-us-west-2.amazonaws.com/profile_icon.png';
 
 class Header extends Component {
   constructor() {

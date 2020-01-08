@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import './tripdisplay.css';
-import rocket from "../../resources/Rocket.png";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
+const rocket = 'https://astraea-project.s3-us-west-2.amazonaws.com/Rocket.png';
 
 class TripDisplay extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './tripconfirmation.css';
 import { connect } from "react-redux";
-import helmet from '../../resources/Astronaut-Helmet-Line-Art.png';
+const helmet = 'https://astraea-project.s3-us-west-2.amazonaws.com/Astronaut-Helmet-Line-Art.png';
 
 class TripConfirmation extends Component {
     constructor(props) {

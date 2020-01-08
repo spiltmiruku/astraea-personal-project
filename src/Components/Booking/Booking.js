@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
 import Stripe from "../Booking/StripePayment";
-import earth from "../../resources/Earth.png";
-import select from "../../resources/select.png";
+const earth = 'https://astraea-project.s3-us-west-2.amazonaws.com/Earth.png';
+const select = 'https://astraea-project.s3-us-west-2.amazonaws.com/select.png';
 
 class Booking extends Component {
   constructor(props) {
