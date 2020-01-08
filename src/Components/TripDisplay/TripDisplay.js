@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import './tripdisplay.css';
+import "./tripdisplay.css";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
-const rocket = 'https://astraea-project.s3-us-west-2.amazonaws.com/Rocket.png';
+const rocket = "https://astraea-project.s3-us-west-2.amazonaws.com/Rocket.png";
 
 class TripDisplay extends Component {
   constructor(props) {
@@ -75,8 +75,7 @@ class TripDisplay extends Component {
               <h1 className="from-to">
                 <span className="ticket-airport">{departure_airport}</span>
                 <p className="dashes">
-                  ----- <img id="rocket-icon" src={rocket} alt="rocket" />{" "}
-                  -----
+                  ----- <img id="rocket-icon" src={rocket} alt="rocket" /> -----
                 </p>
                 <span className="ticket-planet">{destination_planet}</span>
               </h1>
@@ -88,7 +87,7 @@ class TripDisplay extends Component {
               <span className="ticket-date">
                 {return_date && Moment(return_date).format("MMM Do YYYY")}
               </span>
-              
+
               <label>
                 Passengers:
                 <span className="ticket-qty">{passenger_qty}</span>
@@ -164,6 +163,7 @@ class TripDisplay extends Component {
                     {Moment(this.state.return_date._d).format("MMM Do YYYY")}
                   </div>
                   <DateRange
+                  className='rdr-DateRange'
                     onInit={this.handleSelect}
                     onChange={this.handleSelect}
                   />
@@ -171,8 +171,26 @@ class TripDisplay extends Component {
               )}
             </div>
             {/* <input onChange={e => this.handleChange(e)} value={this.state.passenger_qty} type='number' name='passenger_qty' /> */}
-            <button onClick={this.handleToggle}>Cancel Edit</button>
-            <button onClick={() => this.editTrip(id)}>Save Changes</button>
+
+            <section className='cancel-save-btns'>
+              <div className="btn-container">
+                <div
+                  className="discover-btn effect01"
+                  onClick={this.handleToggle}
+                >
+                  CANCEL
+                </div>
+              </div>
+
+              <div className="btn-container">
+                <div
+                  className="discover-btn effect01"
+                  onClick={() => this.editTrip(id)}
+                >
+                  SAVE
+                </div>
+              </div>
+            </section>
           </div>
         )}
       </div>

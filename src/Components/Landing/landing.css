@@ -61,7 +61,7 @@
     text-align: center;
     top: 200px;
     user-select: none;
-    font-size: 62px;
+    font-size: 55px;
 
   }
   
@@ -159,6 +159,7 @@
     font-style: italic;
     font-weight: 400;
     letter-spacing: 9px;
+    font-size: 14px;
   }
   
   .border-on .sub-heading {
@@ -200,5 +201,8 @@
   }
     #hero {
       height: 450px;
+    }
+    .sub-heading {
+      font-size: 18px;
     }
   }

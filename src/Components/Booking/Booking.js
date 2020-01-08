@@ -223,6 +223,7 @@ class Booking extends Component {
                   </button>
 
                   <DateRange
+                    className='date-range'
                     onInit={this.handleSelect}
                     onChange={this.handleSelect}
                   />

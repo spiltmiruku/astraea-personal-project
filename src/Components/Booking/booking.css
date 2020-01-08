@@ -92,6 +92,12 @@
   border: plum solid;
 }
 
+.rdr-DateRange {
+  position: relative;
+  z-index: 7;
+  width: max-content;
+}
+
 .flight-times {
   height: 100px;
   display: flex;
