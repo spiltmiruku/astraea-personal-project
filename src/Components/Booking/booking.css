@@ -3,7 +3,7 @@
 .booking-title {
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 700;
   letter-spacing: 8px;
 }
@@ -12,15 +12,19 @@
   border: palegreen solid;
 }
 
-.booking-inputs {
+#earth-hero {
   height: 300px;
+  margin-top: 120px;
+}
+
+.booking-inputs {
   width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  align-content: center;
+  align-content: center; */
 }
 
 .border-on .booking-inputs {
@@ -44,11 +48,19 @@
 }
 
 .destination-dropdown {
-  height: 150px;
+  height: 120px;
   width: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.destination-dropdown select, .departureAirportSelect select{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  border: 1px solid white;
+  background: transparent;
+  padding: 8px 10px;
 }
 
 .border-on .destination-dropdown {
@@ -81,7 +93,7 @@
 }
 
 .flight-times {
-  height: 150px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +104,7 @@
 }
 
 .passenger-number {
-  height: 150px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,3 +143,42 @@ input {
   outline: none;
 }
 
+.confirmation-box-wrapper {
+ margin-left: 35%;
+}
+
+.confirmation-box {
+  border: teal solid;
+  width: 500px;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+}
+
+.confirmation-box p{
+  margin: 0;
+}
+
+
+@media (min-width: 500px) {
+  .booking-title {
+    font-size: 60px;
+  }
+  #earth-hero {
+    height: 400px;
+  }
+  .booking-inputs {
+    height: 300px;
+  }
+  .destination-dropdown {
+    height: 150px;
+  }
+  .flight-times {
+    height: 150px;
+  }
+  .passenger-number {
+    height: 150px;
+  }
+}

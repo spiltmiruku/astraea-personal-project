@@ -1,7 +1,7 @@
 /* ----------AUTHMODAL COMPONENT---------- */
 
 .auth-title {
-    font-size: 70px;
+    font-size: 55px;
   }
   
   .auth-input {
@@ -22,15 +22,10 @@
   }
   
   .login {
-    margin-top: 200px;
+    margin-top: 150px;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     letter-spacing: 4px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
   }
   
   .border-on .login {
@@ -38,15 +33,10 @@
   }
   
   .register {
-    margin-top: 200px;
+    margin-top: 120px;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     letter-spacing: 4px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
   }
   
   .border-on .register {
@@ -73,3 +63,12 @@
     border: mediumspringgreen solid;
   }
   
+
+  @media (min-width: 500px){
+    .auth-title {
+      font-size: 70px;
+    }
+    .login, .register {
+      margin-top: 200px;
+    }
+  }

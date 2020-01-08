@@ -75,8 +75,8 @@ class TripDisplay extends Component {
               <h1 className="from-to">
                 <span className="ticket-airport">{departure_airport}</span>
                 <p className="dashes">
-                  ------ <img id="rocket-icon" src={rocket} alt="rocket" />{" "}
-                  ------
+                  ----- <img id="rocket-icon" src={rocket} alt="rocket" />{" "}
+                  -----
                 </p>
                 <span className="ticket-planet">{destination_planet}</span>
               </h1>

@@ -35,7 +35,7 @@ class Header extends Component {
           <img src={logo} alt="logo" className="logo" />
         </Link>
         <div className="header">
-          <div className="account-box">
+          <div className="account-box mt-2">
             <Link to="/profile/authenticate">
               <img src={icon} alt="profile icon" className="icon" />
               <p className="account">

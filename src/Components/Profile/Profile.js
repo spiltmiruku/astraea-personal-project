@@ -80,8 +80,11 @@ class Profile extends Component {
                 <h2 className='greeting'>Welcome back, {this.props.reducer.user && this.props.reducer.user.passenger_firstname}</h2>
 
                 <div className='ticket-box'>
+            
                   {this.props.tripReducer.bookedTrips.map((booking, i) => (
              <TripDisplay key={i} booking={booking} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/>
+                    
+             
 
                   ))} 
                 </div>

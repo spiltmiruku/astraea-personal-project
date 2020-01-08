@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./booking.css";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
-import Stripe from '../Booking/StripePayment';
+import Stripe from "../Booking/StripePayment";
 import earth from "../../resources/Earth.png";
 import select from "../../resources/select.png";
 
@@ -59,10 +59,8 @@ class Booking extends Component {
     });
   }
 
-  
-
   bookTrip = () => {
-    console.log('booking')
+    console.log("booking");
     if (this.props.reducer.user.user_id) {
       axios
         .post("/api/booktrip", {
@@ -76,7 +74,7 @@ class Booking extends Component {
           flight_date: this.state.departureDate
         })
         .then(res => {
-          alert("Trip booked");
+          // alert("Trip booked");
         })
         .catch(err => console.log(err));
       this.props.history.push("/tripconfirmation");
@@ -103,7 +101,7 @@ class Booking extends Component {
 
   render() {
     if (!this.props.reducer.user.username) {
-      return <Redirect from='/booking' to='/profile/authenticate' />
+      // return <Redirect from="/booking" to="/profile/authenticate" />;
     }
 
     let departureLocationSelect = "";
@@ -144,13 +142,12 @@ class Booking extends Component {
     //     )
     // }
 
-  
     return (
       <div>
-        <img id="hero" src={earth} alt="earth" />
+        <img id="earth-hero" src={earth} alt="earth" />
         <h1 className="booking-title">ADVENTURE STARTS HERE</h1>
         {this.state.display === "bookTrip" ? (
-          <section className="booking-inputs">
+          <section className="booking-inputs d-flex justify-content-center flex-column flex-md-row text-center align-items-center mt-5 pb-5">
             <div className="departureSearchBox">
               <label className="booking-label">Departure</label>
               <input
@@ -161,19 +158,18 @@ class Booking extends Component {
                 placeholder="Departure"
               />
 
-
-            <div className="btn-container">
-              <div
-                className="discover-btn effect01"
-                onClick={() => this.handleAirportSearch("departure")}
-                name="departureSearch"
-              >
-                Search Airports
+              <div className="btn-container">
+                <div
+                  className="discover-btn effect01"
+                  onClick={() => this.handleAirportSearch("departure")}
+                  name="departureSearch"
+                >
+                  Search Airports
+                </div>
+                <div className="departureAirportSelect">
+                  {departureLocationSelect}
+                </div>
               </div>
-              <div className="departureAirportSelect">
-                {departureLocationSelect}
-              </div>
-            </div>
             </div>
 
             {/* <label>Destination</label>
@@ -207,11 +203,13 @@ class Booking extends Component {
                   onClick={e => this.toggleCalendar("display")}
                   className="trip-dates"
                 >
-                  <p className='select-dates'>(Select Departure & Return dates)</p>
+                  <p className="select-dates">
+                    (Select Departure & Return dates)
+                  </p>
                   <img id="select" src={select} alt="select arrow" />
                   {this.state.dates &&
                     Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
-                      {this.state.dates && <p>-----</p>}
+                  {this.state.dates && <p>-----</p>}
                   {this.state.dates &&
                     Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
                 </div>
@@ -264,51 +262,55 @@ class Booking extends Component {
           </section>
         ) : (
           <div>
-            <section className='confirmation-box'>
+            <article className="confirmation-box-wrapper">
+              <section className="confirmation-box">
+                <label>Departure Airport</label>
+                <p className="confirmation-info">
+                  {this.state.departureAirport}
+                </p>
 
-            <label>Departure Airport</label>
-            <h1 className='confirmation-info'>{this.state.departureAirport}</h1>
+                <label>Destination</label>
+                <p className="confirmation-info">
+                  {this.state.destinationPlanet}
+                </p>
 
-            <label>Destination</label>
-            <h1 className='confirmation-info'>{this.state.destinationPlanet}</h1>
+                <label>Departure Time</label>
+                <p className="confirmation-info">{this.state.time}</p>
 
+                <label>Number of Passengers</label>
+                <p className="confirmation-info">{this.state.passenger_qty}</p>
 
-            <label>Departure Time</label>
-            <h1 className='confirmation-info'>{this.state.time}</h1>
+                <label>Travel Dates</label>
+                <p className="confirmation-info">
+                  {this.state.dates &&
+                    Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
+                  -
+                  {this.state.dates &&
+                    Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
+                </p>
+              </section>
+            </article>
 
-            <label>Number of Passengers</label>
-            <h1 className='confirmation-info'>{this.state.passenger_qty}</h1>
-
-            <label>Travel Dates</label>
-            <h1>
-              {this.state.dates &&
-                Moment(this.state.dates.startDate._d).format("MMM Do YYYY")}
-              -
-              {this.state.dates &&
-                Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
-            </h1>
-            </section>
-           
-              <div className="btn-container">
-                <div
-                  onClick={e => this.handleToggle("bookTrip")}
-                  className="discover-btn effect01"
-                >
-                  BACK
-                </div>
+            <div className="btn-container">
+              <div
+                onClick={e => this.handleToggle("bookTrip")}
+                className="discover-btn effect01"
+              >
+                BACK
               </div>
+            </div>
 
-                <Stripe bookTrip={this.bookTrip}  passenger_qty={this.state.passenger_qty} amount={this.state.amount}/>
-
-          
+            <Stripe
+              bookTrip={this.bookTrip}
+              passenger_qty={this.state.passenger_qty}
+              amount={this.state.amount}
+            />
           </div>
         )}
-
       </div>
     );
   }
 }
-
 
 const mapStateToProps = reduxState => {
   return reduxState;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './about.css';
-import wings from '../../resources/Wings.png';
+const wings = 'https://astraea-project.s3-us-west-2.amazonaws.com/Wings.png';
 // import chara from '../../resources/chara.webp';
 
 const About = () => {

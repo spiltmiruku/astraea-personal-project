@@ -5,6 +5,9 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
   .logo-link {
     height: 30px;
@@ -23,7 +26,6 @@
   .account-box {
     align-items: center;
     height: fit-content;
-    margin-top: 10px;
     margin-right: 16px;
     text-decoration: none;
     display: flex;

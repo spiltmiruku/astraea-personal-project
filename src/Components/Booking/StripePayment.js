@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import StripeCheckout from "react-stripe-checkout";
 import './stripepayment.css';
 import axios from "axios";
@@ -30,7 +29,7 @@ class StripePayment extends Component {
     .post("/api/payment", { token, amount: this.props.amount })
       .then(res => {
         console.log(res);
-        alert(`Payment of ${amount} has been submitted`);
+        // alert(`Payment of ${this.props.amount} has been submitted`);
         this.props.bookTrip();
       });
   };
@@ -67,7 +66,7 @@ class StripePayment extends Component {
           allowRememberMe // "Remember Me" option (default true)
           billingAddress={false}
           // shippingAddress //you can collect their address
-          zipCode={true}
+          zipCode={false}
           onClick={() => this.props.bookTrip()}
         >
           <div className="btn-container">

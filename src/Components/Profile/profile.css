@@ -38,8 +38,8 @@
     border: white solid;
     font-family: "Montserrat", sans-serif;
     padding: 30px;
-    margin: 100px 50px 0;
-    height: 180px;
+    margin: 70px 50px 0;
+    height: fit-content;
     width: 600px;
   }
   
@@ -52,7 +52,11 @@
     align-items: center;
   }
   
-
+  .edit-del {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
 
   .ticket-airport,
   .ticket-planet,
