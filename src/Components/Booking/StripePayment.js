@@ -51,7 +51,7 @@ class StripePayment extends Component {
             
           }}
           //   image={}
-          description={"Thank you for choosing ASTRAEA"} //subtitle - beneath header
+          description={`Your total is $${this.props.amount/100 * this.props.passenger_qty}`} //subtitle - beneath header
           stripeKey={process.env.REACT_APP_STRIPE_KEY} //public key not secret key
           token={this.onToken} //fires the call back
     

@@ -26,7 +26,7 @@ class Booking extends Component {
       displayCalendar: "hide",
       display: "bookTrip",
       departureSearched: false,
-      amount: 10000
+      amount: 10000000
     };
     this.bookTrip = this.bookTrip.bind(this);
     this.handleAirportSearch = this.handleAirportSearch.bind(this);
