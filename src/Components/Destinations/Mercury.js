@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import useTouristImg from '../../hooks/useTouristImg';
 
-class Mercury extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
+const Mercury = () => {
+  const touristImg = useTouristImg('Mercury')
+  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg} /> : 'loading...';
+
     return (
       <div className="wrap-all-planets">
         <section className="planet">
@@ -27,6 +26,8 @@ class Mercury extends Component {
             system.{" "}
           </p>
         </section>
+
+        {loadedTouristImg}
 
         <section className="planetBars">
           <Link to="/moon">
@@ -52,6 +53,5 @@ class Mercury extends Component {
       </div>
     );
   }
-}
 
 export default Mercury;

@@ -72,6 +72,10 @@
     border: tomato solid;
   }
 
+.tourist-img {
+  padding-top: 20px;
+  width: 560px;
+}
 
   .planetBars {
     display: flex;
@@ -80,7 +84,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
   
   .border-on .planetBars {

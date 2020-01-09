@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import useTouristImg from '../../hooks/useTouristImg';
 
-class Jupiter extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  render() {
+const Jupiter = () => {
+  const touristImg = useTouristImg('Jupiter')
+  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg} /> : 'loading...';
+
     return (
       <div className="wrap-all-planets">
         <section className="planet">
@@ -36,6 +35,9 @@ class Jupiter extends Component {
           </p>
         </section>
 
+        {loadedTouristImg}
+
+
         <section className="planetBars">
           <Link to="/moon">
             <div className="selectPlanet">
@@ -61,6 +63,5 @@ class Jupiter extends Component {
       </div>
     );
   }
-}
 
 export default Jupiter;

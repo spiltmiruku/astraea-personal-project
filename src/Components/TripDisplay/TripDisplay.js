@@ -138,7 +138,7 @@ class TripDisplay extends Component {
             />
 
             <div className="trip-dates-wrapper">
-              <label>Dates</label>
+              <label className='dates-label'>Dates</label>
               {this.state.displayCalendar === "hide" ? (
                 <div
                   onClick={e => this.toggleCalendar("display")}
@@ -151,17 +151,17 @@ class TripDisplay extends Component {
               ) : (
                 <div>
                   <button
-                    className="trip-dates"
+                    className="trip-dates-btn"
                     onClick={e => this.toggleCalendar("hide")}
                   >
                     Confirm Dates
                   </button>
-                  <div className="date-display">
+                  {/* <div className="date-display">
                     {Moment(this.state.departure_date._d).format("MMM Do YYYY")}
                   </div>
                   <div>
                     {Moment(this.state.return_date._d).format("MMM Do YYYY")}
-                  </div>
+                  </div> */}
                   <DateRange
                   className='rdr-DateRange'
                     onInit={this.handleSelect}

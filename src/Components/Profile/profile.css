@@ -2,8 +2,8 @@
 
 .logout {
   position: absolute;
-  top: 12%;
-  left: 88%;
+  top: 15%;
+  left: 90%;
 }
 
 .upcoming-title {
@@ -11,7 +11,10 @@
     font-weight: 700;
     font-size: 60px;
     letter-spacing: 8px;
-    margin-top: 50px;
+    margin: 50px 0;
+    padding-bottom: 50px;
+    /* bottom: 50px; */
+    /* margin-bottom: 50px; */
   }
   
   .greeting {
@@ -38,9 +41,10 @@
     border: white solid;
     font-family: "Montserrat", sans-serif;
     padding: 30px;
-    margin: 70px 50px 0;
+    margin-top: 70px;
+    margin-bottom: 50px;
     height: fit-content;
-    width: 600px;
+    width: 700px;
   }
   
 

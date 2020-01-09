@@ -7,7 +7,7 @@ import routes from './routes';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App border-on">
       <Header />
       {routes}
     </div>

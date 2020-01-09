@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./booking.css";
 import axios from "axios";
 import { connect } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import Moment from "moment";
 import Stripe from "../Booking/StripePayment";
@@ -101,7 +101,7 @@ class Booking extends Component {
 
   render() {
     if (!this.props.reducer.user.username) {
-      // return <Redirect from="/booking" to="/profile/authenticate" />;
+      return <Redirect from="/booking" to="/profile/authenticate" />;
     }
 
     let departureLocationSelect = "";
@@ -197,7 +197,7 @@ class Booking extends Component {
             </div>
 
             <div className="trip-dates-wrapper">
-              <label>Dates</label>
+              <label className='dates-label'>Dates</label>
               {this.state.displayCalendar === "hide" ? (
                 <div
                   onClick={e => this.toggleCalendar("display")}
@@ -216,7 +216,7 @@ class Booking extends Component {
               ) : (
                 <div>
                   <button
-                    className="trip-dates"
+                    className="trip-dates-btn"
                     onClick={e => this.toggleCalendar("hide")}
                   >
                     Confirm Dates
