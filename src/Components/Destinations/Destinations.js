@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import './destinations.css';
-import Moon from './Moon';
-import Mars from './Mars';
-import Jupiter from './Jupiter';
-import Venus from './Venus';
-import Mercury from './Mercury';
+// import Moon from './Moon';
+// import Mars from './Mars';
+// import Jupiter from './Jupiter';
+// import Venus from './Venus';
+// import Mercury from './Mercury';
+import PlanetZoom from '../PlanetZoom/PlanetZoom';
 
 class Destinations extends Component {
   constructor() {
@@ -14,11 +15,12 @@ class Destinations extends Component {
   render() {
     return (
       <div>
-        <Moon />
+        <PlanetZoom />
+        {/* <Moon />
         <Mars />
         <Jupiter />
         <Mercury />
-        <Venus />
+        <Venus /> */}
       </div>
     );
   }

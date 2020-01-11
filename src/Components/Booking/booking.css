@@ -70,12 +70,12 @@
 
 .trip-dates-wrapper {
   height: 150px;
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 70px;
 }
+
+.trip-dates-wrapper > div{
+  background-color: #0f1013;
+}
+
 
 .border-on .trip-dates-wrapper {
   border: mediumslateblue solid;
@@ -88,10 +88,6 @@
   font-weight: 700;
   text-transform: uppercase;
   padding: 15px 0px;
-}
-
-.dates-label {
-  margin-top: 30px;
 }
 
 .trip-dates-btn {

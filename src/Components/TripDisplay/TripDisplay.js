@@ -107,7 +107,10 @@ class TripDisplay extends Component {
               <div className="btn-container edit-del">
                 <div
                   className="discover-btn effect01"
-                  onClick={() => this.props.deleteTrip(id)}
+                  // onClick={() => this.props.deleteTrip(id)}
+                  onClick={() => { (window.confirm(
+                    'Are you sure you would like to delete this trip? We do not offer refunds at this time.'
+                    )) && this.props.deleteTrip(id)  } } 
                 >
                   Delete
                 </div>
@@ -166,6 +169,7 @@ class TripDisplay extends Component {
                   className='rdr-DateRange'
                     onInit={this.handleSelect}
                     onChange={this.handleSelect}
+                    calendars='1'
                   />
                 </div>
               )}

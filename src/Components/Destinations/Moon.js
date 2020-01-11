@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import useTouristImg from '../../hooks/useTouristImg';
 
 const Moon = () => {
   const touristImg = useTouristImg('Moon')
-  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg} /> : 'loading...';
+  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg}  alt='tourist on the Moon'/> : 'loading...';
 
     return (
       <div className="wrap-all-planets">

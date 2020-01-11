@@ -84,8 +84,6 @@ class Profile extends Component {
                   {this.props.tripReducer.bookedTrips.map((booking, i) => (
              <TripDisplay key={i} booking={booking} editTrip={this.editTrip} deleteTrip={this.deleteTrip}/>
                     
-             
-
                   ))} 
                 </div>
           

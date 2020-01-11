@@ -13,17 +13,8 @@
     border: mediumslateblue solid;
   }
   
-  .wings {
-    height: 450px;
-    margin: 30px 70px 30px 0;
-  }
-  
-  .border-on .wings {
-    border: goldenrod solid;
-  }
-  
   .title-content-wrapper {
-    width: 450px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -58,3 +49,8 @@
     border: red solid;
   }
   
+.particle-effect {
+  width: 500px;
+  height: 800px;
+  margin-right: 30px;
+}

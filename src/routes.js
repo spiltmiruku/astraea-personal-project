@@ -28,6 +28,7 @@ export default (
     <Route path="/venus" component={Venus} />
     <Route path="/tripconfirmation" component={TripConfirmation} />
     <Route path="/profile" component={Profile} />
+    
     {/* <Route path='/payment' component={StripePayment} /> */}
   </Switch>
 );

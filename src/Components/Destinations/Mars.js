@@ -4,7 +4,7 @@ import useTouristImg from '../../hooks/useTouristImg';
 
 const Mars = () => {
   const touristImg = useTouristImg('Mars')
-  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg} /> : 'loading...';
+  let loadedTouristImg = touristImg ? <img className='tourist-img' src={touristImg} alt='tourist on mars'/> : 'loading...';
 
 
   return (

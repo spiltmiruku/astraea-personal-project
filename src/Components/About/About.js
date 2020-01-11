@@ -1,14 +1,17 @@
 import React from "react";
 import "./about.css";
-const wings = "https://astraea-project.s3-us-west-2.amazonaws.com/Wings.png";
-// import chara from '../../resources/chara.webp';
+import Particles from "react-particles-js";
+import particlesjs from "./particlesjs-config.json";
 
 const About = () => {
   return (
     <div className="about-box">
-      <div className="wing-box">
-        <img src={wings} alt="Wings" className="wings" />
-      </div>
+      <Particles
+        className="particle-effect"
+        params={particlesjs}
+        width={500}
+        height={800}
+      />
 
       <div className="title-content-wrapper">
         <h1 className="page-title">ASTRAEA</h1>
@@ -23,6 +26,12 @@ const About = () => {
             are more than a space travel company. We create luxury experiences
             for our clientele. With choices like the Moon, Mars, and Jupiter,
             you can choose the ultimate travel destination.
+          </p>
+          <br />
+          <p>
+            At ASTRAEA, we provide the comfort of staying at a Ritz Carlton with
+            the elegance of Hermes. Your journey into space will be smooth and
+            punctual, because we’ll keep time like a Vacheron Constantin watch.
           </p>
         </section>
       </div>

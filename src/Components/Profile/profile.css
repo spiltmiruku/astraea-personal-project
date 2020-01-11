@@ -3,7 +3,7 @@
 .logout {
   position: absolute;
   top: 15%;
-  left: 90%;
+  left: 80vw;
 }
 
 .upcoming-title {
@@ -36,13 +36,15 @@
     justify-content: center;
     align-items: center;
   }
+
+  .ticket-wrapper {
+    margin: 50px 0;
+  }
   
   .generated-ticket {
     border: white solid;
     font-family: "Montserrat", sans-serif;
     padding: 30px;
-    margin-top: 70px;
-    margin-bottom: 50px;
     height: fit-content;
     width: 700px;
   }

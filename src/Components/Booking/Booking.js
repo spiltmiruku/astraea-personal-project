@@ -16,7 +16,7 @@ class Booking extends Component {
       departure: "",
       departureAirport: "",
       departureLocationAirports: [],
-      destinationPlanet: "",
+      destinationPlanet: "Moon",
       destinationLocations: [],
       time: "",
       departureDate: "",
@@ -60,7 +60,6 @@ class Booking extends Component {
   }
 
   bookTrip = () => {
-    console.log("booking");
     if (this.props.reducer.user.user_id) {
       axios
         .post("/api/booktrip", {
@@ -226,6 +225,7 @@ class Booking extends Component {
                     className='date-range'
                     onInit={this.handleSelect}
                     onChange={this.handleSelect}
+                    calendars='1'
                   />
                 </div>
               )}
