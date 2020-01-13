@@ -10,7 +10,7 @@ const Mars = () => {
   return (
     <div className="wrap-all-planets">
       <section className="planet">
-        <h1 className="planet-name"> MARS </h1>
+        <h1 data-text='MARS' className="planet-name mars-pn"><span>MARS</span></h1>
         <h2 className="planet-subtitle"> THE RED PLANET </h2>
         <p className="desc">
           Mars is the fourth planet from the Sun and is the second smallest

@@ -9,7 +9,7 @@ const Jupiter = () => {
     return (
       <div className="wrap-all-planets">
         <section className="planet">
-          <h1 className="planet-name"> JUPITER </h1>
+          <h1 data-text='JUPITER' className="planet-name jupiter-pn"><span>JUPITER</span></h1>
           <h2 className="planet-subtitle">BEHOLD THE GIANT</h2>
           <p className="desc">
             Jupiter is the fifth planet from our Sun and is, by far, the largest

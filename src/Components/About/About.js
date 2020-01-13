@@ -14,7 +14,7 @@ const About = () => {
       />
 
       <div className="title-content-wrapper">
-        <h1 className="page-title">ASTRAEA</h1>
+        <h1 className='page-title about-glitch'>ASTRAEA</h1>
         <section className="about">
           <p>
             In Greek mythology, ASTRAEA is the 'star-maiden', and the goddess of

@@ -9,7 +9,7 @@ const Moon = () => {
     return (
       <div className="wrap-all-planets">
         <section className="planet">
-          <h1 className="planet-name"> MOON </h1>
+          <h1 data-text='MOON' className="planet-name moon-pn"> <span>MOON</span></h1>
           <h2 className="planet-subtitle">THE DARK SIDE</h2>
           <p className="desc">
             The Moon is Earth's only natural satellite and it is in synchronous

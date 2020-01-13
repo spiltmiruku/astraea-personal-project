@@ -5,7 +5,7 @@ function useTouristImg(destination) {
     useEffect(() => {
         setTimeout(() => {
             setImgURL(`https://astraea-project.s3-us-west-2.amazonaws.com/${destination}/tourist.jpg`)
-        }, 2000);
+        }, 1000);
         
     })
   return imgURL;

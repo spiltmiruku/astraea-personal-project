@@ -9,7 +9,7 @@ const Mercury = () => {
     return (
       <div className="wrap-all-planets">
         <section className="planet">
-          <h1 className="planet-name"> MERCURY </h1>
+          <h1 data-text='MERCURY' className="planet-name mercury-pn"> <span>MERCURY</span></h1>
           <h2 className="planet-subtitle">LIGHTWEIGHT</h2>
           <p className="desc">
             Named after the Roman messenger to the gods, Mercury is the smallest

@@ -9,7 +9,7 @@ const Venus = () => {
     return (
       <div className="wrap-all-planets">
         <section className="planet">
-          <h1 className="planet-name"> VENUS </h1>
+          <h1 data-text='VENUS' className="planet-name venus-pn"> <span>VENUS</span></h1>
           <h2 className="planet-subtitle">IT'S GOING TO BE A LONG DAY</h2>
           <p className="desc">
             Named after the Roman goddess of love and beauty, Venus is the
