@@ -213,7 +213,7 @@ class Booking extends Component {
                     Moment(this.state.dates.endDate._d).format("MMM Do YYYY")}
                 </div>
               ) : (
-                <div>
+                <div className='confirm-data'>
                   <button
                     className="trip-dates-btn"
                     onClick={e => this.toggleCalendar("hide")}
